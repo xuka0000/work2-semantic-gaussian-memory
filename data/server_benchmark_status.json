@@ -1,0 +1,26 @@
+{
+  "generated_at": "2026-06-16T03:35:09+08:00",
+  "status": "environment_repair_running",
+  "active_processes": [
+    {
+      "pid": "9877",
+      "elapsed": "01:25:13",
+      "cpu_percent": "0.7",
+      "mem_percent": "0.0",
+      "command": "/root/shared-nvme/work2/panogs_assets/envs/panogs_py312/bin/python -m pip install torch==2.7.1 torchvision==0.22.1 pillow"
+    }
+  ],
+  "source": "new server ps snapshot via ssh alias work2-new-westd",
+  "boundary": "The new server GPU is visible but idle. No PanoGS benchmark job is running until torch CUDA and SAM smoke tests pass.",
+  "auth_mode": "ssh_alias_work2_new_westd",
+  "remote_rc": 0,
+  "remote_stderr": "",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 4090",
+    "memory_total_mib": 49140,
+    "memory_used_mib": 0,
+    "utilization_percent": 0
+  },
+  "pending_experiment": "PanoGS office4 reconstruction",
+  "next_action": "Wait for torch CUDA installation to finish, run smoke tests, then launch office4 reconstruction."
+}

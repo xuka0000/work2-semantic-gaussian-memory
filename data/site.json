@@ -1317,26 +1317,19 @@
   },
   "benchmark_status": {
     "title": "PanoGS Replica benchmark state",
-    "status": "active_remote_benchmark_processes",
-    "generated_at": "2026-06-15T12:57:42+08:00",
+    "status": "environment_repair_running",
+    "generated_at": "2026-06-16T03:35:09+08:00",
     "active_processes": [
       {
-        "pid": "50087",
-        "elapsed": "05:59",
-        "cpu_percent": "0.6",
+        "pid": "9877",
+        "elapsed": "01:25:13",
+        "cpu_percent": "0.7",
         "mem_percent": "0.0",
-        "command": "[server-path-redacted] panogs_office3_recon_job.py"
-      },
-      {
-        "pid": "50154",
-        "elapsed": "05:58",
-        "cpu_percent": "145",
-        "mem_percent": "0.2",
-        "command": "[server-path-redacted] run_recon.py --config [server-path-redacted]"
+        "command": "[server-path-redacted] pip install torch==2.7.1 torchvision==0.22.1 pillow"
       }
     ],
     "source": "progress_site/data/server_benchmark_status.json",
-    "boundary": "This is a one-shot remote process snapshot. Completed metric rows are read from local synced status and CSV files.",
+    "boundary": "This is a one-shot new-server process snapshot. The GPU is idle and no PanoGS benchmark job is running until torch CUDA and SAM smoke tests pass.",
     "full8_target": [
       "office0",
       "office1",
@@ -1414,22 +1407,22 @@
     ],
     "server_experiments": [
       {
-        "experiment": "Remote benchmark process snapshot",
-        "status": "active_remote_benchmark_processes",
-        "running": "2 active processes",
+        "experiment": "New server runtime repair",
+        "status": "environment_repair_running",
+        "running": "pip installing torch 2.7.1 CUDA wheel set",
         "metrics": "not a metric row",
-        "next_action": "Launch office3 PanoGS chain, then office4, if the server is idle.",
-        "source": "progress_site/data/server_benchmark_status.json",
-        "boundary": "This is a one-shot remote process snapshot. Completed metric rows are read from local synced status and CSV files."
+        "next_action": "Run torch CUDA, torchvision, PIL, SAM and PanoGS smoke tests, then launch office4 reconstruction.",
+        "source": "/tmp/work2_pip_install_torch.log; progress_site/data/server_benchmark_status.json",
+        "boundary": "Environment repair only. It is not an experiment result."
       },
       {
         "experiment": "PanoGS Replica full8 pointwise track",
         "status": "7 / 8 scenes complete",
         "running": "pending office4",
         "metrics": "mean mIoU 0.5653, mean mAcc 0.6841",
-        "next_action": "Complete office3 and office4, then compute the full8 aggregate.",
+        "next_action": "Complete office4, then compute the full8 aggregate.",
         "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_*_run_segment_*/artifacts/eval_pointwise_semantic.txt",
-        "boundary": "Six completed pointwise scenes are diagnostics until the full eight-scene aggregate exists."
+        "boundary": "Seven completed pointwise scenes are diagnostics until the full eight-scene aggregate exists."
       },
       {
         "experiment": "PanoGS office2 semantic chain",
