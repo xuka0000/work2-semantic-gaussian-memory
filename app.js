@@ -40,11 +40,32 @@ function linkNode(label, href) {
 function statusLabel(state = "") {
   const text = value(state, "not recorded");
   let cls = "status-chip";
-  if (text.includes("metric_complete")) cls += " status-chip-complete";
+  if (text.includes("metric_complete") || text.includes("ready")) cls += " status-chip-complete";
   else if (text.includes("pointwise") || text.includes("running")) cls += " status-chip-running";
   else if (text.includes("blocked")) cls += " status-chip-blocked";
   else cls += " status-chip-context";
   return make("span", cls, text);
+}
+
+function compactPath(input = "") {
+  const text = value(input);
+  if (!text) return "";
+  const first = text.split(";")[0].trim();
+  const parts = first.split(/[\\/]/).filter(Boolean);
+  if (parts.length <= 2) return first;
+  return parts.slice(-2).join("/");
+}
+
+function compactTruth(input = "") {
+  const text = value(input);
+  if (!text) return "";
+  return text
+    .replace(/_no_public_sota_claim/g, "")
+    .replace(/_no_public_sota/g, "")
+    .replace(/panogs_/g, "")
+    .replace(/public_/g, "")
+    .replace(/_metric_/g, " metric ")
+    .replace(/_/g, " ");
 }
 
 function mediaElement(item, className = "") {
@@ -1200,6 +1221,101 @@ function renderBenchmarkStatus(status = {}) {
   root.replaceChildren(cards, experimentTableWrap, sceneStrip, live);
 }
 
+function evidenceCell(row) {
+  const cell = make("td", "evidence-cell");
+  cell.append(make("b", "", value(row.evidence, "not recorded")));
+  if (row.source) {
+    const code = make("code", "", compactPath(row.source));
+    code.title = value(row.source);
+    cell.append(code);
+  }
+  if (row.truth_level) {
+    const truth = make("small", "", compactTruth(row.truth_level));
+    truth.title = value(row.truth_level);
+    cell.append(truth);
+  }
+  return cell;
+}
+
+function renderQuantitativeResults(section = {}) {
+  const root = $("quantitative-results");
+  if (!root) return;
+  const cards = section.cards || [];
+  const mainRows = section.main_table || [];
+  const diagnosticRows = section.diagnostics || [];
+  setParentSectionVisible(root, Boolean(cards.length || mainRows.length || diagnosticRows.length));
+  if (!cards.length && !mainRows.length && !diagnosticRows.length) {
+    root.replaceChildren();
+    return;
+  }
+
+  const cardGrid = make("div", "quant-card-grid");
+  cards.forEach((card) => {
+    const item = make("article", "quant-card");
+    item.append(make("b", "", value(card.label)));
+    item.append(make("strong", "", value(card.value)));
+    item.append(make("small", "", value(card.detail)));
+    cardGrid.append(item);
+  });
+
+  const note = make("p", "quant-note", value(section.note));
+  const mainWrap = make("div", "table-wrap quant-table-wrap");
+  const mainTable = document.createElement("table");
+  mainTable.className = "quant-table";
+  const mainHead = document.createElement("thead");
+  const mainHeader = document.createElement("tr");
+  ["Method", "Evidence", "N", "mIoU", "mAcc", "Top8 mIoU", "Present mIoU", "Completion IoU", "Status"].forEach((name) => mainHeader.append(make("th", "", name)));
+  mainHead.append(mainHeader);
+  const mainBody = document.createElement("tbody");
+  mainRows.forEach((row) => {
+    const tr = document.createElement("tr");
+    tr.append(make("td", "method-name", value(row.method)));
+    tr.append(evidenceCell(row));
+    tr.append(make("td", "number-cell", value(row.n)));
+    tr.append(make("td", "number-cell", value(row.miou)));
+    tr.append(make("td", "number-cell", value(row.macc)));
+    tr.append(make("td", "number-cell", value(row.top8_miou)));
+    tr.append(make("td", "number-cell", value(row.present_miou)));
+    tr.append(make("td", "number-cell", value(row.completion_iou)));
+    const status = make("td", "status-cell");
+    const chip = statusLabel(row.status);
+    if (row.status_detail) chip.title = value(row.status_detail);
+    status.append(chip);
+    mainBody.append(tr);
+    tr.append(status);
+  });
+  mainTable.append(mainHead, mainBody);
+  mainWrap.append(mainTable);
+
+  const diagTitle = make("h3", "quant-subtitle", value(section.diagnostics_title, "Diagnostics"));
+  const diagNote = make("p", "quant-note", value(section.diagnostics_note));
+  const diagWrap = make("div", "table-wrap quant-table-wrap");
+  const diagTable = document.createElement("table");
+  diagTable.className = "quant-table diagnostic-table";
+  const diagHead = document.createElement("thead");
+  const diagHeader = document.createElement("tr");
+  ["Scene", "Classes", "mIoU", "mAcc", "Strongest classes", "Evidence", "Decision"].forEach((name) => diagHeader.append(make("th", "", name)));
+  diagHead.append(diagHeader);
+  const diagBody = document.createElement("tbody");
+  diagnosticRows.forEach((row) => {
+    const tr = document.createElement("tr");
+    if (value(row.decision).includes("next run")) tr.className = "diagnostic-pending";
+    else tr.className = "diagnostic-retained";
+    tr.append(make("td", "method-name", value(row.scene)));
+    tr.append(make("td", "number-cell", value(row.classes)));
+    tr.append(make("td", "number-cell", value(row.miou)));
+    tr.append(make("td", "number-cell", value(row.macc)));
+    tr.append(make("td", "", value(row.strongest_classes)));
+    tr.append(evidenceCell(row));
+    tr.append(make("td", "", value(row.decision)));
+    diagBody.append(tr);
+  });
+  diagTable.append(diagHead, diagBody);
+  diagWrap.append(diagTable);
+
+  root.replaceChildren(cardGrid, note, mainWrap, diagTitle, diagNote, diagWrap);
+}
+
 function renderBenchmarkPerformance(section = {}) {
   const root = $("benchmark-performance");
   if (!root) return;
@@ -1277,6 +1393,7 @@ function render(data) {
   $("video-note").textContent = value(data.video_note);
   renderButtons(data.buttons || []);
   renderTeaser(data.teaser || {}, data.hero_slider || {});
+  renderQuantitativeResults(data.quantitative_results || {});
   renderPrincipleVisual(data.principle_visual || {});
   renderMethod(data.method || {});
   renderAlgorithmDetails(data.algorithm_details || {});

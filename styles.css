@@ -1349,6 +1349,127 @@ h2 {
   word-break: break-word;
 }
 
+.quant-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0 0 22px;
+}
+
+#quantitative-results-section h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 500;
+  text-align: center;
+}
+
+.quant-card {
+  min-height: 110px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #f7f9fc;
+  padding: 16px;
+}
+
+.quant-card b,
+.quant-card strong,
+.quant-card small {
+  display: block;
+}
+
+.quant-card b {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.quant-card strong {
+  margin: 8px 0;
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.15;
+}
+
+.quant-card small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.quant-note {
+  max-width: 790px;
+  margin: 0 auto 18px;
+  color: var(--muted);
+  text-align: center;
+}
+
+.quant-subtitle {
+  margin: 48px 0 16px;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.quant-table-wrap {
+  margin: 0 0 12px;
+}
+
+.quant-table {
+  min-width: 900px;
+}
+
+.quant-table th {
+  background: #fbfcfe;
+}
+
+.quant-table td {
+  background: #fff;
+}
+
+.quant-table .method-name {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.evidence-cell b,
+.evidence-cell code,
+.evidence-cell small {
+  display: block;
+}
+
+.evidence-cell code {
+  margin-top: 4px;
+  color: #34435b;
+  font-size: 11px;
+}
+
+.evidence-cell small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.status-cell .status-chip {
+  max-width: none;
+}
+
+.status-cell small {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.diagnostic-retained td {
+  background: #f2faf8;
+}
+
+.diagnostic-pending td {
+  background: #fff7f3;
+}
+
 .benchmark-status-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -1719,6 +1840,10 @@ td code {
     grid-template-columns: 1fr;
   }
 
+  .quant-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .point-cloud-info {
     grid-template-columns: 1fr;
   }
@@ -1766,5 +1891,9 @@ td code {
 @media (max-width: 460px) {
   h1 {
     font-size: 32px;
+  }
+
+  .quant-card-grid {
+    grid-template-columns: 1fr;
   }
 }

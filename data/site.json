@@ -1,6 +1,6 @@
 {
   "workspace": "work2",
-  "updated_at": "2026-06-15T09:08:22+08:00",
+  "updated_at": "2026-06-15T10:18:11+08:00",
   "venue": "Replica/PanoGS local evidence page",
   "title": "Semantic Gaussian Memory",
   "subtitle": "Queryable 3D Semantic Gaussian Maps for Embodied Navigation",
@@ -907,7 +907,7 @@
   "public_methods_meta": {
     "title": "Public Baseline Evidence Table",
     "status": "Auto-refreshing local site.json",
-    "updated_at": "2026-06-15T09:08:22+08:00",
+    "updated_at": "2026-06-15T10:18:11+08:00",
     "refresh_interval_seconds": 30,
     "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/public_method_progress_20260613/public_method_progress_rows_20260613.csv",
     "boundary": "The browser reloads site.json every 30 seconds. Server progress appears here after sync-only updates local logs and this script regenerates site.json."
@@ -1549,5 +1549,181 @@
     "status": "sanitized_static_share_copy",
     "recommended_visibility": "private repository for colleague review",
     "boundary": "Raw server paths, local absolute paths, browser cache, raw PLY and NPY files are excluded from this copy."
+  },
+  "quantitative_results": {
+    "title": "Quantitative Results",
+    "note": "The main table is reserved for full eight-scene rows. PanoGS pointwise scene results are shown as diagnostics until office3 and office4 finish.",
+    "cards": [
+      {
+        "label": "Best completed PanoGS scene",
+        "value": "office2 mIoU 0.5658",
+        "detail": "mAcc 0.6572; single-scene pointwise evidence."
+      },
+      {
+        "label": "PanoGS pointwise progress",
+        "value": "6 / 8 scenes",
+        "detail": "Completed-scene mean mIoU 0.5649, mAcc 0.6777."
+      },
+      {
+        "label": "Formal full8 PanoGS row",
+        "value": "pending",
+        "detail": "Remaining scenes: office3, office4."
+      },
+      {
+        "label": "Public methods tracked",
+        "value": "17 methods",
+        "detail": "Three adapted full8 rows are metric-ready in the current local CSV."
+      }
+    ],
+    "main_table": [
+      {
+        "method": "LangSplatV2",
+        "evidence": "work2 adapted full8",
+        "n": "8 scenes",
+        "miou": "not reported",
+        "macc": "not reported",
+        "top8_miou": "0.032586",
+        "present_miou": "0.011919",
+        "completion_iou": "0.161105",
+        "status": "metric ready",
+        "status_detail": "metric_complete_full8",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/public_method_progress_20260613/public_method_progress_rows_20260613.csv",
+        "truth_level": "public_langsplatv2_replicaocc_full8_metric_queue_no_sota"
+      },
+      {
+        "method": "GAGS",
+        "evidence": "work2 adapted full8",
+        "n": "8 scenes",
+        "miou": "not reported",
+        "macc": "not reported",
+        "top8_miou": "0.000000",
+        "present_miou": "0.000139",
+        "completion_iou": "0.242552",
+        "status": "metric ready",
+        "status_detail": "metric_complete_full8",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/public_method_progress_20260613/public_method_progress_rows_20260613.csv",
+        "truth_level": "public_gags_replicaocc_full8_metric_baseline_no_sota"
+      },
+      {
+        "method": "Identity aware LGS",
+        "evidence": "work2 adapted full8",
+        "n": "8 scenes",
+        "miou": "not reported",
+        "macc": "not reported",
+        "top8_miou": "0.004158",
+        "present_miou": "0.001484",
+        "completion_iou": "0.032722",
+        "status": "metric ready",
+        "status_detail": "metric_complete_full8",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/public_method_progress_20260613/public_method_progress_rows_20260613.csv",
+        "truth_level": "public_ilgs_replicaocc_full8_24f_metric_queue_no_sota"
+      },
+      {
+        "method": "PanoGS",
+        "evidence": "this work anchor",
+        "n": "8 target scenes",
+        "miou": "pending",
+        "macc": "pending",
+        "top8_miou": "pending",
+        "present_miou": "pending",
+        "completion_iou": "pending",
+        "status": "formal row pending",
+        "status_detail": "6 completed diagnostics; full8 row not filled",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_*_run_segment_*/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_partial_pointwise_diagnostic_no_public_sota_claim"
+      }
+    ],
+    "diagnostics_title": "PanoGS Pointwise Diagnostics",
+    "diagnostics_note": "These rows are scene-level pointwise diagnostics from the current evaluator path. They guide reproduction and visualization, but they are not a formal public ranking row.",
+    "diagnostics": [
+      {
+        "scene": "office0",
+        "classes": "21",
+        "miou": "0.4537",
+        "macc": "0.5677",
+        "strongest_classes": "ceiling, floor, sofa",
+        "evidence": "pointwise eval",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office0_run_segment_20260613/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_office0_pointwise_eval_single_scene_no_public_sota",
+        "decision": "retained diagnostic"
+      },
+      {
+        "scene": "office1",
+        "classes": "21",
+        "miou": "0.2235",
+        "macc": "0.3114",
+        "strongest_classes": "bed, wall, floor",
+        "evidence": "pointwise eval",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office1_run_segment_20260614/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_office1_pointwise_eval_single_scene_no_public_sota",
+        "decision": "retained diagnostic"
+      },
+      {
+        "scene": "office2",
+        "classes": "21",
+        "miou": "0.5658",
+        "macc": "0.6572",
+        "strongest_classes": "wall, sofa, floor",
+        "evidence": "pointwise eval",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office2_run_segment_20260615/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_office2_pointwise_eval_single_scene_no_public_sota",
+        "decision": "retained diagnostic"
+      },
+      {
+        "scene": "room0",
+        "classes": "21",
+        "miou": "0.7349",
+        "macc": "0.8215",
+        "strongest_classes": "door, floor, window",
+        "evidence": "pointwise eval",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_room0_run_segment_20260613/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_room0_pointwise_eval_single_scene_no_public_sota",
+        "decision": "retained diagnostic"
+      },
+      {
+        "scene": "room1",
+        "classes": "21",
+        "miou": "0.7187",
+        "macc": "0.8454",
+        "strongest_classes": "window, ceiling, wall",
+        "evidence": "pointwise eval",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_room1_run_segment_20260613/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_room1_pointwise_eval_single_scene_no_public_sota",
+        "decision": "retained diagnostic"
+      },
+      {
+        "scene": "room2",
+        "classes": "21",
+        "miou": "0.6928",
+        "macc": "0.8628",
+        "strongest_classes": "door, ceiling, wall",
+        "evidence": "pointwise eval",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_room2_run_segment_20260613/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_room2_pointwise_eval_single_scene_no_public_sota",
+        "decision": "retained diagnostic"
+      },
+      {
+        "scene": "office3",
+        "classes": "21",
+        "miou": "pending",
+        "macc": "pending",
+        "strongest_classes": "pending",
+        "evidence": "not finished",
+        "source": "server benchmark queue",
+        "truth_level": "pending_no_metric",
+        "decision": "next run"
+      },
+      {
+        "scene": "office4",
+        "classes": "21",
+        "miou": "pending",
+        "macc": "pending",
+        "strongest_classes": "pending",
+        "evidence": "not finished",
+        "source": "server benchmark queue",
+        "truth_level": "pending_no_metric",
+        "decision": "next run"
+      }
+    ]
   }
 }
