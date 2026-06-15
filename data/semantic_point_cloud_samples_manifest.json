@@ -1,0 +1,47 @@
+{
+  "generated_by": "progress_site/tools/build_semantic_point_cloud_samples.py",
+  "records": [
+    {
+      "scene": "office2",
+      "out": "progress_site/data/office2_semantic_point_cloud_sample.json",
+      "sample_count": 65000,
+      "vertex_count_source": 858623
+    },
+    {
+      "scene": "office1",
+      "out": "progress_site/data/office1_semantic_point_cloud_sample.json",
+      "sample_count": 65000,
+      "vertex_count_source": 423007
+    },
+    {
+      "scene": "room2",
+      "out": "progress_site/data/room2_semantic_point_cloud_sample.json",
+      "sample_count": 65000,
+      "vertex_count_source": 722496
+    }
+  ],
+  "class_names": [
+    "wall",
+    "floor",
+    "cabinet",
+    "bed",
+    "chair",
+    "sofa",
+    "table",
+    "door",
+    "window",
+    "bookshelf",
+    "picture",
+    "counter",
+    "desk",
+    "curtain",
+    "refrigerator",
+    "shower curtain",
+    "toilet",
+    "sink",
+    "bathtub",
+    "other",
+    "ceiling"
+  ],
+  "boundary": "Samples are derived from local PanoGS point clouds and pre_semantic 21-class labels. No new experiment metric is created."
+}

@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research Project Page</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main>
+      <section class="hero">
+        <p class="venue" id="venue">Local research progress</p>
+        <h1 id="title">Research Project Page</h1>
+        <p class="subtitle" id="subtitle"></p>
+        <p class="authors" id="authors"></p>
+        <nav class="button-row" id="buttons"></nav>
+        <div class="teaser" id="teaser"></div>
+        <p class="caption" id="teaser-caption"></p>
+      </section>
+
+      <section class="section narrow" id="abstract-section">
+        <h2>Abstract</h2>
+        <div id="abstract" class="abstract-body"></div>
+      </section>
+
+      <section class="section" id="semantic-principle">
+        <h2>Semantic Gaussian Mapping</h2>
+        <div id="principle-visual"></div>
+      </section>
+
+      <section class="section" id="scene-capture">
+        <h2>Interactive 3D Semantic Map</h2>
+        <div id="point-cloud-viewer"></div>
+      </section>
+
+      <section class="section" id="dynamic-semantic-map">
+        <h2>Replica 3D Semantic Results</h2>
+        <div id="semantic-tasks"></div>
+      </section>
+
+      <section class="section narrow" id="method-overview">
+        <h2>Method Overview</h2>
+        <div id="method-media" class="method-media"></div>
+        <p id="method-text"></p>
+      </section>
+
+      <section class="section" id="core-algorithm">
+        <h2>Algorithm and Evidence Gates</h2>
+        <p class="section-note" id="algorithm-note"></p>
+        <div class="algorithm-grid" id="algorithm-details"></div>
+      </section>
+
+      <section class="section" id="data-protocol-section">
+        <h2>Data and Protocol</h2>
+        <p class="section-note" id="protocol-note"></p>
+        <div class="protocol-grid" id="data-protocol"></div>
+      </section>
+
+      <section class="section narrow" id="network-architecture">
+        <h2>Network Architecture</h2>
+        <div id="architecture-media" class="method-media"></div>
+        <p id="architecture-text"></p>
+      </section>
+
+      <section class="section" id="technical-stack-section">
+        <h2>Technical Stack</h2>
+        <div class="stack-grid" id="technical-stack"></div>
+      </section>
+
+      <section class="section" id="benchmark-section">
+        <h2>Benchmark and Reproduction Performance</h2>
+        <div id="benchmark-status"></div>
+        <div id="benchmark-performance"></div>
+      </section>
+
+      <section class="section" id="dynamic-results">
+        <h2>Geometry and Semantic Panels</h2>
+        <p class="section-note" id="video-note"></p>
+        <div id="metric-space"></div>
+        <div id="media-sections"></div>
+      </section>
+
+      <section class="section" id="evidence-section">
+        <h2>Public Baseline Progress</h2>
+        <div class="highlight-grid" id="highlights"></div>
+        <div id="h4g-summary"></div>
+        <details class="evidence-details">
+          <summary>Evidence appendix</summary>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Artifact</th>
+                  <th>Truth level</th>
+                  <th>Source</th>
+                  <th>Boundary</th>
+                </tr>
+              </thead>
+              <tbody id="evidence"></tbody>
+            </table>
+          </div>
+        </details>
+        <div id="public-methods"></div>
+      </section>
+
+      <section class="section narrow" id="updates">
+        <h2>Updates</h2>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="section narrow">
+        <h2>Boundaries</h2>
+        <ul id="boundaries"></ul>
+      </section>
+
+      <section class="section narrow">
+        <h2>Next Steps</h2>
+        <ol id="next-actions"></ol>
+      </section>
+    </main>
+
+    <script src="./vendor/three.min.js"></script>
+    <script src="./vendor/cytoscape.min.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

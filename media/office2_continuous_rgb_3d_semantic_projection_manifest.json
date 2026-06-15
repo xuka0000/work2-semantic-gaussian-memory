@@ -1,0 +1,490 @@
+{
+  "generated_by": "progress_site/tools/build_office2_semantic_projection_video.py",
+  "scene": "office2",
+  "start_frame": 1250,
+  "end_frame": 1339,
+  "frame_count": 90,
+  "fps": 18,
+  "duration_seconds": 5.0,
+  "projection": "world points from point_cloud.ply are projected with inverse traj.txt pose and Replica intrinsics",
+  "class_source": "[converted-semantic-asset]",
+  "point_source": "[converted-semantic-asset]",
+  "rgb_source": "[converted-frame-window]",
+  "auth_mode": "local_secret_store",
+  "mp4": "progress_site/media/office2_continuous_rgb_3d_semantic_projection.mp4",
+  "webm": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_browser.webm",
+  "poster": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_poster.jpg",
+  "mp4_inspection": {
+    "frames": 90,
+    "fps": 18.0,
+    "width": 960,
+    "height": 540,
+    "duration_seconds": 5.0,
+    "first_last_mean_abs_delta": 34.4809684753418
+  },
+  "webm_inspection": {
+    "frames": 90,
+    "fps": 18.0,
+    "width": 960,
+    "height": 540,
+    "duration_seconds": 5.0,
+    "first_last_mean_abs_delta": 34.05054473876953
+  },
+  "class_names": [
+    "wall",
+    "floor",
+    "cabinet",
+    "bed",
+    "chair",
+    "sofa",
+    "table",
+    "door",
+    "window",
+    "bookshelf",
+    "picture",
+    "counter",
+    "desk",
+    "curtain",
+    "refrigerator",
+    "shower curtain",
+    "toilet",
+    "sink",
+    "bathtub",
+    "other",
+    "ceiling"
+  ],
+  "visible_summary_sample": [
+    {
+      "frame": 1250,
+      "top_classes": [
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 37563
+        },
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 14569
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 8436
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 7224
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 3778
+        },
+        {
+          "class_id": 10,
+          "name": "picture",
+          "projected_pixels": 1733
+        },
+        {
+          "class_id": 2,
+          "name": "cabinet",
+          "projected_pixels": 90
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 73
+        }
+      ]
+    },
+    {
+      "frame": 1259,
+      "top_classes": [
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 36405
+        },
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 14750
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 9637
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 7037
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 3580
+        },
+        {
+          "class_id": 10,
+          "name": "picture",
+          "projected_pixels": 1380
+        },
+        {
+          "class_id": 2,
+          "name": "cabinet",
+          "projected_pixels": 89
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 82
+        }
+      ]
+    },
+    {
+      "frame": 1268,
+      "top_classes": [
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 35633
+        },
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 15119
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 10434
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 6817
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 3314
+        },
+        {
+          "class_id": 10,
+          "name": "picture",
+          "projected_pixels": 1070
+        },
+        {
+          "class_id": 2,
+          "name": "cabinet",
+          "projected_pixels": 86
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 53
+        }
+      ]
+    },
+    {
+      "frame": 1277,
+      "top_classes": [
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 34238
+        },
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 15550
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 11066
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 6691
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 3084
+        },
+        {
+          "class_id": 10,
+          "name": "picture",
+          "projected_pixels": 686
+        },
+        {
+          "class_id": 2,
+          "name": "cabinet",
+          "projected_pixels": 89
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 55
+        }
+      ]
+    },
+    {
+      "frame": 1286,
+      "top_classes": [
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 31879
+        },
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 16287
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 11464
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 6755
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 2878
+        },
+        {
+          "class_id": 10,
+          "name": "picture",
+          "projected_pixels": 235
+        },
+        {
+          "class_id": 2,
+          "name": "cabinet",
+          "projected_pixels": 82
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 57
+        }
+      ]
+    },
+    {
+      "frame": 1295,
+      "top_classes": [
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 28753
+        },
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 17060
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 11827
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 6873
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 2652
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 65
+        },
+        {
+          "class_id": 2,
+          "name": "cabinet",
+          "projected_pixels": 54
+        },
+        {
+          "class_id": 4,
+          "name": "chair",
+          "projected_pixels": 11
+        }
+      ]
+    },
+    {
+      "frame": 1304,
+      "top_classes": [
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 24902
+        },
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 18181
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 11753
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 7243
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 2597
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 89
+        },
+        {
+          "class_id": 4,
+          "name": "chair",
+          "projected_pixels": 16
+        }
+      ]
+    },
+    {
+      "frame": 1313,
+      "top_classes": [
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 21670
+        },
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 19059
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 11413
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 7598
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 2710
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 103
+        },
+        {
+          "class_id": 4,
+          "name": "chair",
+          "projected_pixels": 17
+        }
+      ]
+    },
+    {
+      "frame": 1322,
+      "top_classes": [
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 19611
+        },
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 19324
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 10660
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 8004
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 2898
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 93
+        },
+        {
+          "class_id": 4,
+          "name": "chair",
+          "projected_pixels": 22
+        }
+      ]
+    },
+    {
+      "frame": 1331,
+      "top_classes": [
+        {
+          "class_id": 5,
+          "name": "sofa",
+          "projected_pixels": 20005
+        },
+        {
+          "class_id": 0,
+          "name": "wall",
+          "projected_pixels": 18257
+        },
+        {
+          "class_id": 1,
+          "name": "floor",
+          "projected_pixels": 9438
+        },
+        {
+          "class_id": 6,
+          "name": "table",
+          "projected_pixels": 8254
+        },
+        {
+          "class_id": 19,
+          "name": "other",
+          "projected_pixels": 3090
+        },
+        {
+          "class_id": 20,
+          "name": "ceiling",
+          "projected_pixels": 102
+        },
+        {
+          "class_id": 4,
+          "name": "chair",
+          "projected_pixels": 22
+        }
+      ]
+    }
+  ],
+  "truth_level": "panogs_office2_3d_semantic_projection_temporal_video_no_new_metric",
+  "boundary": "Video uses consecutive Replica office2 RGB frames and projected PanoGS pre_semantic 3D class labels. It demonstrates temporally ordered 3D semantic projection, not SAM2 tracking, manual labels, a new metric, or a full public SOTA result."
+}
