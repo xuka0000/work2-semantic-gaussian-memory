@@ -1,26 +1,30 @@
 {
-  "generated_at": "2026-06-16T03:35:09+08:00",
-  "status": "environment_repair_running",
-  "active_processes": [
-    {
-      "pid": "9877",
-      "elapsed": "01:25:13",
-      "cpu_percent": "0.7",
-      "mem_percent": "0.0",
-      "command": "/root/shared-nvme/work2/panogs_assets/envs/panogs_py312/bin/python -m pip install torch==2.7.1 torchvision==0.22.1 pillow"
-    }
-  ],
-  "source": "new server ps snapshot via ssh alias work2-new-westd",
-  "boundary": "The new server GPU is visible but idle. No PanoGS benchmark job is running until torch CUDA and SAM smoke tests pass.",
-  "auth_mode": "ssh_alias_work2_new_westd",
-  "remote_rc": 0,
-  "remote_stderr": "",
-  "gpu": {
-    "name": "NVIDIA GeForce RTX 4090",
-    "memory_total_mib": 49140,
-    "memory_used_mib": 0,
-    "utilization_percent": 0
-  },
-  "pending_experiment": "PanoGS office4 reconstruction",
-  "next_action": "Wait for torch CUDA installation to finish, run smoke tests, then launch office4 reconstruction."
+    "generated_at":  "2026-06-16T05:28:50+08:00",
+    "status":  "office4_reconstruction_running",
+    "active_processes":  [
+                             {
+                                 "pid":  "18139",
+                                 "role":  "office4 reconstruction supervisor",
+                                 "command":  "/root/shared-nvme/work2/experiments/panogs_office4_recon_20260616/panogs_office4_recon_job.py"
+                             },
+                             {
+                                 "pid":  "18206",
+                                 "role":  "PanoGS run_recon.py GPU worker",
+                                 "gpu_memory_mib":  1998,
+                                 "command":  "/root/shared-nvme/work2/panogs_assets/envs/panogs_py312/bin/python run_recon.py --config .../office4_work2.yaml"
+                             }
+                         ],
+    "source":  "new server ssh alias work2-new-westd plus submit_796 sync at 2026-06-16T05:27:04+08:00",
+    "boundary":  "Office4 reconstruction is running. This is a reconstruction job only; no feature fusion, segmentation, evaluation metric, or public SOTA claim is produced by this row.",
+    "auth_mode":  "ssh_alias_work2_new_westd",
+    "remote_rc":  0,
+    "remote_stderr":  "",
+    "gpu":  {
+                "name":  "NVIDIA GeForce RTX 4090",
+                "memory_total_mib":  49140,
+                "memory_used_mib":  1998,
+                "utilization_percent":  0
+            },
+    "pending_experiment":  "PanoGS office4 reconstruction running",
+    "next_action":  "Sync until point_cloud.ply exists, then launch office4 feature fusion, run_feat, run_segment and pointwise evaluation under the same no-SOTA boundary."
 }
