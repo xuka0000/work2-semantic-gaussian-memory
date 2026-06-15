@@ -1,6 +1,6 @@
 {
   "workspace": "work2",
-  "updated_at": "2026-06-15T13:34:50+08:00",
+  "updated_at": "2026-06-15T15:49:24+08:00",
   "venue": "Replica/PanoGS local evidence page",
   "title": "Semantic Gaussian Memory",
   "subtitle": "Queryable 3D Semantic Gaussian Maps for Embodied Navigation",
@@ -43,7 +43,7 @@
     "controls": true,
     "poster": "./media/office2_continuous_rgb_3d_semantic_projection_poster.jpg",
     "truth_level": "panogs_office2_3d_semantic_projection_temporal_video_no_new_metric",
-    "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; [converted-frame-window]"
+    "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; progress_site/media/server_office2_continuous/frame001250-001339"
   },
   "abstract": "Work2 studies how temporally ordered RGB-D observations become a persistent 3D semantic memory for embodied navigation. The current evidence is PanoGS office2 reconstruction with 21-class semantic labels projected back to moving views and exposed as an interactive 3D map. Public comparison remains gated until all Replica scenes finish.",
   "method": {
@@ -233,8 +233,8 @@
     },
     {
       "label": "Metric-ready rows",
-      "value": "6 / 8 scenes",
-      "note": "PanoGS pointwise mean mIoU 0.5649, mAcc 0.6777; not a full8 row."
+      "value": "7 / 8 scenes",
+      "note": "PanoGS pointwise mean mIoU 0.5653, mAcc 0.6841; not a full8 row."
     }
   ],
   "h4g292_scene_summary": [],
@@ -435,9 +435,9 @@
       "year": "2025",
       "tier": "P1",
       "status": "office2_segmentation_finished_single_scene_eval",
-      "metric_state": "6_scene_pointwise_no_full8",
+      "metric_state": "7_scene_pointwise_no_full8",
       "full8_scenes": "8",
-      "completed_metric_scenes": "6",
+      "completed_metric_scenes": "7",
       "top8_miou": "",
       "present_miou": "",
       "completion_iou": "",
@@ -771,7 +771,7 @@
     {
       "artifact": "Server-synced office2 RGB and SAM frames",
       "truth_level": "panogs_office2_sam_mask_generation_no_metric",
-      "source": "[converted-frame-window]; remote [server-path-redacted] and [server-path-redacted]",
+      "source": "progress_site/media/server_office2; remote [server-path-redacted] and [server-path-redacted]",
       "boundary": "Input and SAM preprocessing evidence only. No reconstruction, segmentation metric, full8 aggregate or public SOTA claim."
     },
     {
@@ -801,13 +801,13 @@
     {
       "artifact": "Office2 continuous temporal RGB/SAM overlay video",
       "truth_level": "panogs_office2_continuous_rgb_sam_stable_temporal_video_no_metric",
-      "source": "progress_site/media/office2_continuous_rgb_sam_temporal_video_manifest.json; [converted-frame-window]",
+      "source": "progress_site/media/office2_continuous_rgb_sam_temporal_video_manifest.json; progress_site/media/server_office2_continuous",
       "boundary": "Consecutive server frames 1250-1339 with same-index SAM raw masks rendered by a fixed cyan and yellow palette. Temporal input and preprocessing evidence only; not SAM2 tracking, a new metric, or public SOTA result."
     },
     {
       "artifact": "Office2 continuous RGB and 3D semantic projection video",
       "truth_level": "panogs_office2_3d_semantic_projection_temporal_video_no_new_metric",
-      "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; [converted-semantic-asset]; [converted-semantic-asset]",
+      "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; progress_site/media/panogs_semantic_assets/office2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office2_point_cloud.ply",
       "boundary": "Consecutive server RGB frames 1250-1339 with projected PanoGS 3D class labels. This is semantic projection evidence, not SAM2 tracking, manual labeling, a new metric, or a full public SOTA result."
     }
   ],
@@ -907,7 +907,7 @@
   "public_methods_meta": {
     "title": "Public Baseline Evidence Table",
     "status": "Auto-refreshing local site.json",
-    "updated_at": "2026-06-15T13:34:50+08:00",
+    "updated_at": "2026-06-15T15:49:24+08:00",
     "refresh_interval_seconds": 30,
     "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/public_method_progress_20260613/public_method_progress_rows_20260613.csv",
     "boundary": "The browser reloads site.json every 30 seconds. Server progress appears here after sync-only updates local logs and this script regenerates site.json."
@@ -963,7 +963,7 @@
         "src": "./data/office2_semantic_point_cloud_sample.json",
         "context_src": "./data/office2_point_cloud_sample.json",
         "truth_level": "panogs_office2_semantic_point_cloud_sample_no_new_metric",
-        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
+        "source": "progress_site/media/panogs_semantic_assets/office2_point_cloud.ply; progress_site/media/panogs_semantic_assets/office2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office2_final_seg.npy",
         "metric_summary": {
           "mIoU": 0.5658,
           "mAcc": 0.6572,
@@ -1022,7 +1022,7 @@
         "caption": "office1 semantic point cloud sample generated from local point_cloud.ply and pre_semantic.npy 21-class predictions.",
         "src": "./data/office1_semantic_point_cloud_sample.json",
         "truth_level": "panogs_office1_semantic_point_cloud_sample_no_new_metric",
-        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
+        "source": "progress_site/media/panogs_semantic_assets/office1_point_cloud.ply; progress_site/media/panogs_semantic_assets/office1_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office1_final_seg.npy",
         "metric_summary": {
           "mIoU": 0.2235,
           "mAcc": 0.3114,
@@ -1071,7 +1071,7 @@
         "caption": "room2 semantic point cloud sample generated from local point_cloud.ply and pre_semantic.npy 21-class predictions.",
         "src": "./data/room2_semantic_point_cloud_sample.json",
         "truth_level": "panogs_room2_semantic_point_cloud_sample_no_new_metric",
-        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
+        "source": "progress_site/media/panogs_semantic_assets/room2_point_cloud.ply; progress_site/media/panogs_semantic_assets/room2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/room2_final_seg.npy",
         "metric_summary": {
           "mIoU": 0.6928,
           "mAcc": 0.8628,
@@ -1164,16 +1164,16 @@
       "office0",
       "office1",
       "office2",
+      "office3",
       "room0",
       "room1",
       "room2"
     ],
     "pending_scenes": [
-      "office3",
       "office4"
     ],
-    "mean_completed_miou": 0.5649000000000001,
-    "mean_completed_macc": 0.6776666666666668,
+    "mean_completed_miou": 0.5653142857142858,
+    "mean_completed_macc": 0.6841,
     "scene_metrics": [
       {
         "scene": "office0",
@@ -1195,6 +1195,13 @@
         "mAcc": 0.6572,
         "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office2_run_segment_20260615/artifacts/eval_pointwise_semantic.txt",
         "truth_level": "panogs_office2_pointwise_eval_single_scene_no_public_sota"
+      },
+      {
+        "scene": "office3",
+        "mIoU": 0.5678,
+        "mAcc": 0.7227,
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office3_run_segment_20260615/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_office3_pointwise_eval_single_scene_no_public_sota"
       },
       {
         "scene": "room0",
@@ -1230,9 +1237,9 @@
       },
       {
         "experiment": "PanoGS Replica full8 pointwise track",
-        "status": "6 / 8 scenes complete",
-        "running": "pending office3, office4",
-        "metrics": "mean mIoU 0.5649, mean mAcc 0.6777",
+        "status": "7 / 8 scenes complete",
+        "running": "pending office4",
+        "metrics": "mean mIoU 0.5653, mean mAcc 0.6841",
         "next_action": "Complete office3 and office4, then compute the full8 aggregate.",
         "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_*_run_segment_*/artifacts/eval_pointwise_semantic.txt",
         "boundary": "Six completed pointwise scenes are diagnostics until the full eight-scene aggregate exists."
@@ -1382,14 +1389,14 @@
         "task_id": "EXT08",
         "method": "PanoGS",
         "venue": "CVPR 2025",
-        "local_status": "6_scene_pointwise_no_full8",
-        "local_scenes": "6 / 8",
-        "local_performance": "6/8 pointwise scenes; mean mIoU 0.5649, mean mAcc 0.6777; office2 mIoU 0.5658, mAcc 0.6572",
+        "local_status": "7_scene_pointwise_no_full8",
+        "local_scenes": "7 / 8",
+        "local_performance": "7/8 pointwise scenes; mean mIoU 0.5653, mean mAcc 0.6841; office2 mIoU 0.5658, mAcc 0.6572",
         "top8_miou": "",
         "present_miou": "",
         "completion_iou": "",
-        "local_miou": "0.5649",
-        "local_macc": "0.6777",
+        "local_miou": "0.5653",
+        "local_macc": "0.6841",
         "paper_protocol": "mIoU; mAcc; PRQ; PQ",
         "paper_reported_result": "not extracted",
         "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhai_PanoGS_Gaussian-based_Panoptic_Segmentation_for_3D_Open_Vocabulary_Scene_Understanding_CVPR_2025_paper.html",
@@ -1561,9 +1568,19 @@
     ]
   },
   "github_sharing": {
-    "status": "sanitized_static_share_copy",
-    "recommended_visibility": "private repository for colleague review",
-    "boundary": "Raw server paths, local absolute paths, browser cache, raw PLY and NPY files are excluded from this copy."
+    "status": "private_internal_ready_after_sanitization",
+    "recommended_template": "Academic Project Page Template or Nerfies style",
+    "notes": [
+      "The current progress_site is a static HTML, CSS and JavaScript page, so it can be hosted by GitHub Pages.",
+      "Use a private repository for immediate colleague sharing.",
+      "Before public release, remove local Windows paths, remote server absolute paths, raw process snapshots and unfinished internal boundary notes.",
+      "External templates may provide layout only. Their demo videos or images must not be used as work2 evidence."
+    ],
+    "references": [
+      "https://github.com/eliahuhorwitz/Academic-project-page-template",
+      "https://github.com/nerfies/nerfies.github.io",
+      "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
+    ]
   },
   "quantitative_results": {
     "title": "Quantitative Results",
@@ -1576,13 +1593,13 @@
       },
       {
         "label": "PanoGS pointwise progress",
-        "value": "6 / 8 scenes",
-        "detail": "Completed-scene mean mIoU 0.5649, mAcc 0.6777."
+        "value": "7 / 8 scenes",
+        "detail": "Completed-scene mean mIoU 0.5653, mAcc 0.6841."
       },
       {
         "label": "Formal full8 PanoGS row",
         "value": "pending",
-        "detail": "Remaining scenes: office3, office4."
+        "detail": "Remaining scenes: office4."
       },
       {
         "label": "Public methods tracked",
@@ -1643,7 +1660,7 @@
         "present_miou": "pending",
         "completion_iou": "pending",
         "status": "formal row pending",
-        "status_detail": "6 completed diagnostics; full8 row not filled",
+        "status_detail": "7 completed diagnostics; full8 row not filled",
         "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_*_run_segment_*/artifacts/eval_pointwise_semantic.txt",
         "truth_level": "panogs_partial_pointwise_diagnostic_no_public_sota_claim"
       }
@@ -1685,6 +1702,17 @@
         "decision": "retained diagnostic"
       },
       {
+        "scene": "office3",
+        "classes": "21",
+        "miou": "0.5678",
+        "macc": "0.7227",
+        "strongest_classes": "ceiling, floor, wall",
+        "evidence": "pointwise eval",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office3_run_segment_20260615/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_office3_pointwise_eval_single_scene_no_public_sota",
+        "decision": "retained diagnostic"
+      },
+      {
         "scene": "room0",
         "classes": "21",
         "miou": "0.7349",
@@ -1716,17 +1744,6 @@
         "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_room2_run_segment_20260613/artifacts/eval_pointwise_semantic.txt",
         "truth_level": "panogs_room2_pointwise_eval_single_scene_no_public_sota",
         "decision": "retained diagnostic"
-      },
-      {
-        "scene": "office3",
-        "classes": "21",
-        "miou": "pending",
-        "macc": "pending",
-        "strongest_classes": "pending",
-        "evidence": "not finished",
-        "source": "server benchmark queue",
-        "truth_level": "pending_no_metric",
-        "decision": "next run"
       },
       {
         "scene": "office4",
