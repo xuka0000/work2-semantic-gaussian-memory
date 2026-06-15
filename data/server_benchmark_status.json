@@ -1,30 +1,50 @@
 {
-    "generated_at":  "2026-06-16T05:28:50+08:00",
-    "status":  "office4_reconstruction_running",
-    "active_processes":  [
-                             {
-                                 "pid":  "18139",
-                                 "role":  "office4 reconstruction supervisor",
-                                 "command":  "/root/shared-nvme/work2/experiments/panogs_office4_recon_20260616/panogs_office4_recon_job.py"
-                             },
-                             {
-                                 "pid":  "18206",
-                                 "role":  "PanoGS run_recon.py GPU worker",
-                                 "gpu_memory_mib":  1998,
-                                 "command":  "/root/shared-nvme/work2/panogs_assets/envs/panogs_py312/bin/python run_recon.py --config .../office4_work2.yaml"
-                             }
-                         ],
-    "source":  "new server ssh alias work2-new-westd plus submit_796 sync at 2026-06-16T05:27:04+08:00",
-    "boundary":  "Office4 reconstruction is running. This is a reconstruction job only; no feature fusion, segmentation, evaluation metric, or public SOTA claim is produced by this row.",
-    "auth_mode":  "ssh_alias_work2_new_westd",
-    "remote_rc":  0,
-    "remote_stderr":  "",
-    "gpu":  {
-                "name":  "NVIDIA GeForce RTX 4090",
-                "memory_total_mib":  49140,
-                "memory_used_mib":  1998,
-                "utilization_percent":  0
-            },
-    "pending_experiment":  "PanoGS office4 reconstruction running",
-    "next_action":  "Sync until point_cloud.ply exists, then launch office4 feature fusion, run_feat, run_segment and pointwise evaluation under the same no-SOTA boundary."
+  "generated_at": "2026-06-16T06:51:30+08:00",
+  "status": "office4_run_segment_finished",
+  "active_processes": [],
+  "completed": [
+    {
+      "task": "office4 reconstruction",
+      "status": "finished",
+      "decision": "panogs_office4_recon_finished_no_metric",
+      "point_cloud_exists": true,
+      "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office4_recon_20260616/panogs_office4_recon_summary.json"
+    },
+    {
+      "task": "office4 feature fusion",
+      "status": "finished",
+      "decision": "panogs_office4_feature_fusion_finished_no_metric",
+      "features_size_bytes": 2033680512,
+      "weights_size_bytes": 3972160,
+      "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office4_feature_fusion_20260616/panogs_office4_feature_fusion_summary.json"
+    },
+    {
+      "task": "office4 run_feat",
+      "status": "finished",
+      "decision": "panogs_office4_run_feat_finished_no_metric",
+      "decoder_ckpt_size_bytes": 4815153,
+      "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office4_run_feat_20260616/panogs_office4_run_feat_summary.json"
+    },
+    {
+      "task": "office4 run_segment",
+      "status": "finished",
+      "decision": "panogs_office4_run_segment_finished_no_metric",
+      "miou": 0.4293,
+      "macc": 0.531,
+      "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office4_run_segment_20260616/artifacts/eval_pointwise_semantic.txt"
+    }
+  ],
+  "source": "new server ssh alias work2-new-westd plus submit_799 sync at 2026-06-16T06:50:07+08:00",
+  "boundary": "All eight PanoGS Replica scene-level pointwise diagnostics now exist. This is local diagnostic evidence only; it is not an official public SOTA row or a closed-loop navigation result.",
+  "auth_mode": "ssh_alias_work2_new_westd",
+  "remote_rc": 0,
+  "remote_stderr": "",
+  "gpu": {
+    "name": "NVIDIA GeForce RTX 4090",
+    "memory_total_mib": 49140,
+    "memory_used_mib": 0,
+    "utilization_percent": 0
+  },
+  "pending_experiment": "none for the office4 PanoGS chain",
+  "next_action": "Package the PanoGS full8 diagnostic table, update GitHub Pages, then choose the next public-baseline reproduction or predictive world-model bridge task."
 }
