@@ -1376,6 +1376,63 @@ function renderBenchmarkPerformance(section = {}) {
   root.replaceChildren(wrapper);
 }
 
+function renderFoundationVisual(stage = {}) {
+  const visual = stage.visual || {};
+  const box = make("div", `research-stage-visual research-stage-visual-${value(visual.kind, "none")}`);
+
+  if (visual.kind === "image" || visual.kind === "video") {
+    const media = mediaElement({
+      available: visual.available !== false,
+      src: visual.src,
+      poster: visual.poster,
+      sources: visual.sources,
+      autoplay: visual.autoplay,
+      muted: visual.muted,
+      loop: visual.loop,
+      controls: visual.controls,
+      title: stage.title,
+      reason: visual.reason,
+    });
+    box.append(media);
+  } else if (visual.kind === "gallery") {
+    const grid = make("div", "research-visual-gallery");
+    (visual.items || []).slice(0, 4).forEach((item) => {
+      const tile = make("figure", "research-gallery-tile");
+      tile.append(mediaElement({ ...item, available: item.available !== false }, ""));
+      if (item.label) tile.append(make("figcaption", "", value(item.label)));
+      grid.append(tile);
+    });
+    box.append(grid);
+  } else if (visual.kind === "metrics") {
+    const rows = make("div", "research-mini-metrics");
+    (visual.rows || []).forEach((row) => {
+      const line = make("div", "research-mini-metric");
+      line.append(make("span", "", value(row.label)));
+      line.append(make("strong", "", value(row.value)));
+      rows.append(line);
+    });
+    box.append(rows);
+  } else if (visual.kind === "packet") {
+    const flow = make("div", "research-packet-flow");
+    (visual.items || []).forEach((item) => flow.append(make("span", "", value(item))));
+    box.append(flow);
+  } else if (visual.kind === "anchor") {
+    const link = document.createElement("a");
+    link.href = value(visual.href, "#scene-capture");
+    link.className = "research-anchor-visual";
+    if (visual.poster) {
+      link.append(mediaElement({ available: true, src: visual.poster, title: stage.title }, ""));
+    }
+    link.append(make("span", "", value(visual.label, "Open local view")));
+    box.append(link);
+  } else {
+    box.append(make("div", "missing-media", value(visual.reason, "visual pending local run")));
+  }
+
+  if (visual.caption) box.append(make("p", "research-visual-caption", value(visual.caption)));
+  return box;
+}
+
 function renderResearchEvolution(section = {}) {
   const root = $("research-evolution");
   const note = $("research-evolution-note");
@@ -1396,6 +1453,8 @@ function renderResearchEvolution(section = {}) {
     head.append(make("h3", "", value(stage.title)));
     head.append(statusLabel(stage.truth_level));
     card.append(head);
+    if (stage.state_label) card.append(make("p", "research-state-label", value(stage.state_label)));
+    card.append(renderFoundationVisual(stage));
     if (stage.summary) card.append(make("p", "research-stage-summary", value(stage.summary)));
 
     const benchmarks = make("div", "research-benchmarks");

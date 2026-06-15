@@ -38,7 +38,6 @@
   "boundary": "All eight PanoGS Replica scene-level pointwise diagnostics now exist. This is local diagnostic evidence only; it is not an official public SOTA row or a closed-loop navigation result.",
   "auth_mode": "ssh_alias_work2_new_westd",
   "remote_rc": 0,
-  "remote_stderr": "",
   "gpu": {
     "name": "NVIDIA GeForce RTX 4090",
     "memory_total_mib": 49140,

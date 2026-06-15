@@ -43,15 +43,21 @@
     "controls": true,
     "poster": "./media/office2_continuous_rgb_3d_semantic_projection_poster.jpg",
     "truth_level": "panogs_office2_3d_semantic_projection_temporal_video_no_new_metric",
-    "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; progress_site/media/server_office2_continuous/frame001250-001339"
+    "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; [converted-frame-window]"
   },
   "abstract": "Work2 studies how temporally ordered RGB-D observations become a persistent 3D semantic memory for embodied navigation. The current evidence is PanoGS office2 reconstruction with 21-class semantic labels projected back to moving views and exposed as an interactive 3D map. Public comparison remains gated until all Replica scenes finish.",
   "research_evolution": {
-    "note": "The page separates field direction from local evidence. External methods are benchmark targets or references unless a local work2 row is available.",
+    "note": "Research foundation lanes are shown as evidence status, not as completed claims. Local media are used only when work2 has a real artifact.",
     "stages": [
       {
         "title": "2D semantic segmentation",
-        "summary": "Closed-set image parsing labels each pixel in a fixed vocabulary. It is useful as historical context, but it is not the current research target.",
+        "state_label": "upstream evidence only",
+        "summary": "Closed-set image parsing is retained as preprocessing context. In work2 it supplies frame masks for 3D memory rather than the final result.",
+        "visual": {
+          "kind": "image",
+          "src": "./media/foundation_office2_frame000750_rgb_sam_clean.jpg",
+          "caption": "Replica office2 RGB frame paired with same-frame SAM mask evidence."
+        },
         "benchmarks": [
           "ADE20K",
           "Cityscapes",
@@ -75,12 +81,20 @@
             "url": "https://github.com/NVlabs/SegFormer"
           }
         ],
-        "local_evidence": "No standalone 2D closed-set result is claimed. Work2 uses 2D masks only as upstream observations for 3D memory.",
+        "local_evidence": "No standalone 2D closed-set benchmark result is claimed.",
         "truth_level": "external_reference_plus_upstream_input_boundary"
       },
       {
         "title": "3D semantic segmentation",
-        "summary": "3D scene parsing assigns semantic labels to points, voxels or meshes. This is the closest conventional benchmark family for work2 PanoGS evidence.",
+        "state_label": "local diagnostic complete",
+        "summary": "3D scene parsing assigns labels to points, voxels or Gaussians. This is the completed local foundation lane.",
+        "visual": {
+          "kind": "anchor",
+          "poster": "./media/panogs_office2_semantic_rotation_poster.jpg",
+          "href": "#scene-capture",
+          "label": "Open 3D viewer",
+          "caption": "Interactive point-cloud viewer below uses local PanoGS semantic samples."
+        },
         "benchmarks": [
           "ScanNet",
           "ScanNet200",
@@ -104,12 +118,23 @@
             "url": "https://github.com/dvlab-research/PointGroup"
           }
         ],
-        "local_evidence": "PanoGS Replica office0, office1, office2, office3, room0, room1 and room2 have local pointwise semantic rows. office4 is the next migrated-server task.",
-        "truth_level": "local_replica_pointwise_metric_not_public_scannet_protocol"
+        "local_evidence": "PanoGS Replica eight-scene pointwise diagnostics are complete, mean mIoU 0.5483 and mAcc 0.6650.",
+        "truth_level": "panogs_full8_pointwise_diagnostic_no_public_sota_claim"
       },
       {
         "title": "2D video continuous segmentation",
-        "summary": "Video segmentation tracks objects through changing views. This is the right format for dynamic evidence videos, not repeated still panels.",
+        "state_label": "visual sequence ready, tracking not run",
+        "summary": "Video segmentation should preserve objects through a moving view. The current video shows same-index frame evidence, not SAM2 tracking.",
+        "visual": {
+          "kind": "video",
+          "src": "./media/office2_continuous_rgb_sam_stable_pair_browser.webm",
+          "poster": "./media/office2_continuous_rgb_sam_stable_pair_poster.jpg",
+          "autoplay": true,
+          "muted": true,
+          "loop": true,
+          "controls": true,
+          "caption": "Continuous office2 RGB and fixed-palette SAM sequence, used as input evidence."
+        },
         "benchmarks": [
           "DAVIS",
           "YouTube-VOS",
@@ -133,15 +158,38 @@
             "url": "https://github.com/yoxu515/aot-benchmark"
           }
         ],
-        "local_evidence": "The current teaser uses a 90-frame moving office2 RGB sequence with a 3D semantic projection. It is not a SAM2 object-tracking result.",
+        "local_evidence": "No frame-ID tracking metric, temporal IoU or SAM2 benchmark row has been run.",
         "truth_level": "local_temporal_visualization_no_video_segmentation_benchmark"
       },
       {
         "title": "2D open-vocabulary segmentation",
-        "summary": "Open-vocabulary image segmentation grounds pixels with natural-language labels instead of a preset closed vocabulary.",
+        "state_label": "prompt-mask artifact available",
+        "summary": "Open-vocabulary segmentation grounds pixels with natural-language prompts rather than a fixed label set.",
+        "visual": {
+          "kind": "gallery",
+          "items": [
+            {
+              "src": "./media/foundation_clipseg_yellow_bowl.png",
+              "label": "yellow bowl"
+            },
+            {
+              "src": "./media/foundation_clipseg_wavy_noodles_in_bowl.png",
+              "label": "wavy noodles in bowl"
+            },
+            {
+              "src": "./media/foundation_clipseg_egg.png",
+              "label": "egg"
+            },
+            {
+              "src": "./media/foundation_clipseg_chopsticks.png",
+              "label": "chopsticks"
+            }
+          ],
+          "caption": "Local CLIPSeg prompt-mask artifacts from the ramen smoke lane, not an official benchmark row."
+        },
         "benchmarks": [
           "ADE20K A-150 and A-847",
-          "Pascal Context 59 and 459",
+          "Pascal Context",
           "COCO-Stuff"
         ],
         "methods": [
@@ -162,16 +210,35 @@
             "url": "https://github.com/NVlabs/ODISE"
           }
         ],
-        "local_evidence": "No official 2D open-vocabulary benchmark row has been run in work2. CLIP-style features appear only inside adapted 3D semantic routes.",
-        "truth_level": "external_reference_pending_local_reproduction"
+        "local_evidence": "CLIPSeg masks exist as smoke artifacts, but no official open-vocabulary 2D benchmark row is claimed.",
+        "truth_level": "local_prompt_mask_smoke_no_official_ov_benchmark"
       },
       {
         "title": "3D open-vocabulary segmentation",
-        "summary": "Language-conditioned 3D segmentation is the natural bridge from semantic maps to queryable scene memory.",
+        "state_label": "adapter rows tracked",
+        "summary": "Language-conditioned 3D segmentation is the bridge from semantic maps to queryable scene memory.",
+        "visual": {
+          "kind": "metrics",
+          "rows": [
+            {
+              "label": "LangSplatV2",
+              "value": "top8 0.0326"
+            },
+            {
+              "label": "GAGS",
+              "value": "top8 0.0000"
+            },
+            {
+              "label": "ILGS",
+              "value": "top8 0.0042"
+            }
+          ],
+          "caption": "Adapted ReplicaOcc rows from the local public-method progress table."
+        },
         "benchmarks": [
           "LERF",
           "3D-OVS",
-          "ScanNet200 open vocabulary"
+          "ScanNet200 OV"
         ],
         "methods": [
           {
@@ -189,18 +256,26 @@
           {
             "name": "Gaussian Grouping",
             "url": "https://github.com/lkeab/gaussian-grouping"
-          },
-          {
-            "name": "Online Language Splatting",
-            "url": "https://arxiv.org/html/2503.09447v1"
           }
         ],
-        "local_evidence": "Work2 tracks adapted LangSplatV2, GAGS and ILGS rows under the ReplicaOcc protocol. These are adapter rows, not official public benchmark parity.",
+        "local_evidence": "Adapter rows exist for LangSplatV2, GAGS and ILGS. They are not official public benchmark parity.",
         "truth_level": "local_adapter_rows_no_official_sota_claim"
       },
       {
         "title": "3D Gaussian scene question answering",
-        "summary": "The newest direction asks questions over 3D Gaussian scene memory rather than stopping at segmentation masks.",
+        "state_label": "future lane, predictive packet started",
+        "summary": "The next step is question answering and prediction over 3D Gaussian memory instead of stopping at segmentation.",
+        "visual": {
+          "kind": "packet",
+          "items": [
+            "packet",
+            "forward",
+            "left",
+            "shadow",
+            "20 rows"
+          ],
+          "caption": "Predictive P0 exports action-conditioned packets only. It is not a 3D QA metric."
+        },
         "benchmarks": [
           "OpenEQA",
           "ScanQA",
@@ -222,14 +297,10 @@
           {
             "name": "SceneSplat",
             "url": "https://unique1i.github.io/SceneSplat_webpage/"
-          },
-          {
-            "name": "MLLMSplat",
-            "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Xiu_MLLMSplat_A_2D_MLLM-Powered_Framework_for_3D_Gaussian_Splatting_Understanding_CVPR_2026_paper.pdf"
           }
         ],
-        "local_evidence": "No work2 Gaussian QA row is claimed yet. The PREDICTIVE-SGMAP packet will first build deterministic action-conditioned semantic forecasts.",
-        "truth_level": "future_direction_no_local_qa_result"
+        "local_evidence": "No Gaussian scene QA row is claimed. Predictive ASFP-SGMap P0 is offline shadow replay only.",
+        "truth_level": "predictive_asfp_sgmap_p0_shadow_replay_no_closed_loop"
       }
     ]
   },
@@ -958,7 +1029,7 @@
     {
       "artifact": "Server-synced office2 RGB and SAM frames",
       "truth_level": "panogs_office2_sam_mask_generation_no_metric",
-      "source": "progress_site/media/server_office2; remote [server-path-redacted] and [server-path-redacted]",
+      "source": "[converted-frame-window]; remote [server-path-redacted] and [server-path-redacted]",
       "boundary": "Input and SAM preprocessing evidence only. No reconstruction, segmentation metric, full8 aggregate or public SOTA claim."
     },
     {
@@ -988,13 +1059,13 @@
     {
       "artifact": "Office2 continuous temporal RGB/SAM overlay video",
       "truth_level": "panogs_office2_continuous_rgb_sam_stable_temporal_video_no_metric",
-      "source": "progress_site/media/office2_continuous_rgb_sam_temporal_video_manifest.json; progress_site/media/server_office2_continuous",
+      "source": "progress_site/media/office2_continuous_rgb_sam_temporal_video_manifest.json; [converted-frame-window]",
       "boundary": "Consecutive server frames 1250-1339 with same-index SAM raw masks rendered by a fixed cyan and yellow palette. Temporal input and preprocessing evidence only; not SAM2 tracking, a new metric, or public SOTA result."
     },
     {
       "artifact": "Office2 continuous RGB and 3D semantic projection video",
       "truth_level": "panogs_office2_3d_semantic_projection_temporal_video_no_new_metric",
-      "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; progress_site/media/panogs_semantic_assets/office2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office2_point_cloud.ply",
+      "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; [converted-semantic-asset]; [converted-semantic-asset]",
       "boundary": "Consecutive server RGB frames 1250-1339 with projected PanoGS 3D class labels. This is semantic projection evidence, not SAM2 tracking, manual labeling, a new metric, or a full public SOTA result."
     }
   ],
@@ -1150,7 +1221,7 @@
         "src": "./data/office2_semantic_point_cloud_sample.json",
         "context_src": "./data/office2_point_cloud_sample.json",
         "truth_level": "panogs_office2_semantic_point_cloud_sample_no_new_metric",
-        "source": "progress_site/media/panogs_semantic_assets/office2_point_cloud.ply; progress_site/media/panogs_semantic_assets/office2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office2_final_seg.npy",
+        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
         "metric_summary": {
           "mIoU": 0.5658,
           "mAcc": 0.6572,
@@ -1209,7 +1280,7 @@
         "caption": "office1 semantic point cloud sample generated from local point_cloud.ply and pre_semantic.npy 21-class predictions.",
         "src": "./data/office1_semantic_point_cloud_sample.json",
         "truth_level": "panogs_office1_semantic_point_cloud_sample_no_new_metric",
-        "source": "progress_site/media/panogs_semantic_assets/office1_point_cloud.ply; progress_site/media/panogs_semantic_assets/office1_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office1_final_seg.npy",
+        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
         "metric_summary": {
           "mIoU": 0.2235,
           "mAcc": 0.3114,
@@ -1258,7 +1329,7 @@
         "caption": "room2 semantic point cloud sample generated from local point_cloud.ply and pre_semantic.npy 21-class predictions.",
         "src": "./data/room2_semantic_point_cloud_sample.json",
         "truth_level": "panogs_room2_semantic_point_cloud_sample_no_new_metric",
-        "source": "progress_site/media/panogs_semantic_assets/room2_point_cloud.ply; progress_site/media/panogs_semantic_assets/room2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/room2_final_seg.npy",
+        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
         "metric_summary": {
           "mIoU": 0.6928,
           "mAcc": 0.8628,
@@ -1748,19 +1819,9 @@
     ]
   },
   "github_sharing": {
-    "status": "private_internal_ready_after_sanitization",
-    "recommended_template": "Academic Project Page Template or Nerfies style",
-    "notes": [
-      "The current progress_site is a static HTML, CSS and JavaScript page, so it can be hosted by GitHub Pages.",
-      "Use a private repository for immediate colleague sharing.",
-      "Before public release, remove local Windows paths, remote server absolute paths, raw process snapshots and unfinished internal boundary notes.",
-      "External templates may provide layout only. Their demo videos or images must not be used as work2 evidence."
-    ],
-    "references": [
-      "https://github.com/eliahuhorwitz/Academic-project-page-template",
-      "https://github.com/nerfies/nerfies.github.io",
-      "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
-    ]
+    "status": "sanitized_static_share_copy",
+    "recommended_visibility": "private repository for colleague review",
+    "boundary": "Raw server paths, local absolute paths, browser cache, raw PLY and NPY files are excluded from this copy."
   },
   "quantitative_results": {
     "title": "Quantitative Results",
