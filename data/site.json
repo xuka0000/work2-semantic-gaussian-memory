@@ -1,6 +1,6 @@
 {
   "workspace": "work2",
-  "updated_at": "2026-06-15T10:18:11+08:00",
+  "updated_at": "2026-06-15T13:34:50+08:00",
   "venue": "Replica/PanoGS local evidence page",
   "title": "Semantic Gaussian Memory",
   "subtitle": "Queryable 3D Semantic Gaussian Maps for Embodied Navigation",
@@ -907,7 +907,7 @@
   "public_methods_meta": {
     "title": "Public Baseline Evidence Table",
     "status": "Auto-refreshing local site.json",
-    "updated_at": "2026-06-15T10:18:11+08:00",
+    "updated_at": "2026-06-15T13:34:50+08:00",
     "refresh_interval_seconds": 30,
     "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/public_method_progress_20260613/public_method_progress_rows_20260613.csv",
     "boundary": "The browser reloads site.json every 30 seconds. Server progress appears here after sync-only updates local logs and this script regenerates site.json."
@@ -1130,9 +1130,24 @@
   },
   "benchmark_status": {
     "title": "PanoGS Replica benchmark state",
-    "status": "no_active_remote_benchmark_process",
-    "generated_at": "2026-06-15T09:08:19+08:00",
-    "active_processes": [],
+    "status": "active_remote_benchmark_processes",
+    "generated_at": "2026-06-15T12:57:42+08:00",
+    "active_processes": [
+      {
+        "pid": "50087",
+        "elapsed": "05:59",
+        "cpu_percent": "0.6",
+        "mem_percent": "0.0",
+        "command": "[server-path-redacted] panogs_office3_recon_job.py"
+      },
+      {
+        "pid": "50154",
+        "elapsed": "05:58",
+        "cpu_percent": "145",
+        "mem_percent": "0.2",
+        "command": "[server-path-redacted] run_recon.py --config [server-path-redacted]"
+      }
+    ],
     "source": "progress_site/data/server_benchmark_status.json",
     "boundary": "This is a one-shot remote process snapshot. Completed metric rows are read from local synced status and CSV files.",
     "full8_target": [
@@ -1206,8 +1221,8 @@
     "server_experiments": [
       {
         "experiment": "Remote benchmark process snapshot",
-        "status": "no_active_remote_benchmark_process",
-        "running": "0 active processes",
+        "status": "active_remote_benchmark_processes",
+        "running": "2 active processes",
         "metrics": "not a metric row",
         "next_action": "Launch office3 PanoGS chain, then office4, if the server is idle.",
         "source": "progress_site/data/server_benchmark_status.json",

@@ -3,126 +3,198 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Research Project Page</title>
+    <meta
+      name="description"
+      content="Semantic Gaussian Memory project page for dynamic 2D observations and interactive 3D semantic Gaussian mapping evidence."
+    />
+    <meta
+      name="keywords"
+      content="semantic Gaussian mapping, 3D semantic segmentation, Replica, PanoGS, embodied intelligence"
+    />
+    <title>Semantic Gaussian Memory</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body>
-    <main>
-      <section class="hero">
-        <p class="venue" id="venue">Local research progress</p>
-        <h1 id="title">Research Project Page</h1>
-        <p class="subtitle" id="subtitle"></p>
-        <p class="authors" id="authors"></p>
-        <nav class="button-row" id="buttons"></nav>
-        <div class="teaser" id="teaser"></div>
-        <p class="caption" id="teaser-caption"></p>
-      </section>
-
-      <section class="section narrow" id="abstract-section">
-        <h2>Abstract</h2>
-        <div id="abstract" class="abstract-body"></div>
-      </section>
-
-      <section class="section" id="quantitative-results-section">
-        <h2>Quantitative Results</h2>
-        <div id="quantitative-results"></div>
-      </section>
-
-      <section class="section" id="semantic-principle">
-        <h2>Semantic Gaussian Mapping</h2>
-        <div id="principle-visual"></div>
-      </section>
-
-      <section class="section" id="scene-capture">
-        <h2>Interactive 3D Semantic Map</h2>
-        <div id="point-cloud-viewer"></div>
-      </section>
-
-      <section class="section" id="dynamic-semantic-map">
-        <h2>Replica 3D Semantic Results</h2>
-        <div id="semantic-tasks"></div>
-      </section>
-
-      <section class="section narrow" id="method-overview">
-        <h2>Method Overview</h2>
-        <div id="method-media" class="method-media"></div>
-        <p id="method-text"></p>
-      </section>
-
-      <section class="section" id="core-algorithm">
-        <h2>Algorithm and Evidence Gates</h2>
-        <p class="section-note" id="algorithm-note"></p>
-        <div class="algorithm-grid" id="algorithm-details"></div>
-      </section>
-
-      <section class="section" id="data-protocol-section">
-        <h2>Data and Protocol</h2>
-        <p class="section-note" id="protocol-note"></p>
-        <div class="protocol-grid" id="data-protocol"></div>
-      </section>
-
-      <section class="section narrow" id="network-architecture">
-        <h2>Network Architecture</h2>
-        <div id="architecture-media" class="method-media"></div>
-        <p id="architecture-text"></p>
-      </section>
-
-      <section class="section" id="technical-stack-section">
-        <h2>Technical Stack</h2>
-        <div class="stack-grid" id="technical-stack"></div>
-      </section>
-
-      <section class="section" id="benchmark-section">
-        <h2>Benchmark and Reproduction Performance</h2>
-        <div id="benchmark-status"></div>
-        <div id="benchmark-performance"></div>
-      </section>
-
-      <section class="section" id="dynamic-results">
-        <h2>Geometry and Semantic Panels</h2>
-        <p class="section-note" id="video-note"></p>
-        <div id="metric-space"></div>
-        <div id="media-sections"></div>
-      </section>
-
-      <section class="section" id="evidence-section">
-        <h2>Public Baseline Progress</h2>
-        <div class="highlight-grid" id="highlights"></div>
-        <div id="h4g-summary"></div>
-        <details class="evidence-details">
-          <summary>Evidence appendix</summary>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Artifact</th>
-                  <th>Truth level</th>
-                  <th>Source</th>
-                  <th>Boundary</th>
-                </tr>
-              </thead>
-              <tbody id="evidence"></tbody>
-            </table>
+  <body data-template-source="academic-project-page-template+nerfies">
+    <main id="main-content" class="project-page project-page-redesign">
+      <section class="hero publication-header">
+        <div class="hero-body">
+          <div class="container is-max-desktop">
+            <div class="columns is-centered">
+              <div class="column has-text-centered">
+                <p class="publication-venue" id="venue">Local research progress</p>
+                <h1 class="title is-1 publication-title" id="title">Semantic Gaussian Memory</h1>
+                <p class="publication-subtitle" id="subtitle"></p>
+                <p class="is-size-5 publication-authors" id="authors"></p>
+                <nav class="publication-links" id="buttons" aria-label="project links"></nav>
+              </div>
+            </div>
           </div>
-        </details>
-        <div id="public-methods"></div>
+        </div>
       </section>
 
-      <section class="section narrow" id="updates">
-        <h2>Updates</h2>
-        <div class="timeline" id="timeline"></div>
+      <section class="hero teaser project-teaser">
+        <div class="container is-max-desktop">
+          <div class="hero-body">
+            <div class="teaser-media" id="teaser"></div>
+            <h2 class="subtitle has-text-centered caption" id="teaser-caption"></h2>
+          </div>
+        </div>
       </section>
 
-      <section class="section narrow">
-        <h2>Boundaries</h2>
-        <ul id="boundaries"></ul>
+      <section class="section hero is-light paper-section" id="abstract-section">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+              <h2 class="title is-3">Abstract</h2>
+              <div id="abstract" class="content has-text-justified abstract-body"></div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section class="section narrow">
-        <h2>Next Steps</h2>
-        <ol id="next-actions"></ol>
+      <section class="section paper-section" id="method-overview">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Method Overview</h2>
+          <div id="method-media" class="method-media"></div>
+          <p id="method-text" class="method-text"></p>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="semantic-principle">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Semantic Gaussian Mapping</h2>
+          <div id="principle-visual"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section is-light-panel" id="scene-capture">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Interactive 3D Semantic Map</h2>
+          <div id="point-cloud-viewer"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="quantitative-results-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Quantitative Results</h2>
+          <div id="quantitative-results"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="benchmark-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Benchmark and Reproduction Performance</h2>
+          <div id="benchmark-status"></div>
+          <div id="benchmark-performance"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="network-architecture">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Network Architecture</h2>
+          <div id="architecture-media" class="method-media"></div>
+          <p id="architecture-text" class="method-text"></p>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="technical-stack-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Technical Stack</h2>
+          <div class="stack-grid" id="technical-stack"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="dynamic-semantic-map">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Replica 3D Semantic Results</h2>
+          <div id="semantic-tasks"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="dynamic-results">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Geometry and Semantic Panels</h2>
+          <p class="section-note" id="video-note"></p>
+          <div id="metric-space"></div>
+          <div id="media-sections"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="core-algorithm">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Algorithm and Evidence Gates</h2>
+          <p class="section-note" id="algorithm-note"></p>
+          <div class="algorithm-grid" id="algorithm-details"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="data-protocol-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Data and Protocol</h2>
+          <p class="section-note" id="protocol-note"></p>
+          <div class="protocol-grid" id="data-protocol"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section" id="evidence-section">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Public Baseline Progress</h2>
+          <div class="highlight-grid" id="highlights"></div>
+          <div id="h4g-summary"></div>
+          <details class="evidence-details">
+            <summary>Evidence appendix</summary>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Artifact</th>
+                    <th>Truth level</th>
+                    <th>Source</th>
+                    <th>Boundary</th>
+                  </tr>
+                </thead>
+                <tbody id="evidence"></tbody>
+              </table>
+            </div>
+          </details>
+          <div id="public-methods"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section is-light-panel" id="updates">
+        <div class="container is-max-desktop">
+          <h2 class="title is-3 has-text-centered">Updates</h2>
+          <div class="timeline" id="timeline"></div>
+        </div>
+      </section>
+
+      <section class="section paper-section boundary-section">
+        <div class="container is-max-desktop">
+          <div class="columns">
+            <div class="column">
+              <h2 class="title is-4">Boundaries</h2>
+              <ul id="boundaries"></ul>
+            </div>
+            <div class="column">
+              <h2 class="title is-4">Next Steps</h2>
+              <ol id="next-actions"></ol>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
+
+    <footer class="footer template-credit">
+      <div class="container is-max-desktop">
+        <p>
+          Page structure follows the
+          <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>
+          and the
+          <a href="https://github.com/nerfies/nerfies.github.io" target="_blank" rel="noopener noreferrer">Nerfies project page</a>.
+          Work2 videos, 3D samples, metrics and progress rows are local evidence only.
+        </p>
+      </div>
+    </footer>
 
     <script src="./vendor/three.min.js"></script>
     <script src="./vendor/cytoscape.min.js"></script>

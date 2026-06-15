@@ -121,10 +121,18 @@ function mediaElement(item, className = "") {
 function renderButtons(buttons = []) {
   const root = $("buttons");
   root.replaceChildren(...buttons.map((button) => {
-    if (!button.href) return make("span", "", value(button.label));
+    const label = value(button.label);
+    const icon = label.toLowerCase().includes("code") ? "GH" : label.toLowerCase().includes("data") ? "CSV" : "PDF";
+    if (!button.href) {
+      const span = make("span", "link-block button is-normal is-rounded is-dark", label);
+      span.dataset.icon = icon;
+      return span;
+    }
     const link = document.createElement("a");
     link.href = button.href;
-    link.textContent = value(button.label);
+    link.className = "link-block button is-normal is-rounded is-dark";
+    link.dataset.icon = icon;
+    link.textContent = label.replace("</", "").replace(">", "");
     return link;
   }));
 }
@@ -1119,6 +1127,7 @@ function renderPublicMethods(rows = [], meta = {}) {
     return;
   }
   const wrapper = make("details", "public-methods evidence-details");
+  wrapper.open = true;
   const summary = make("summary", "", value(meta.title, "Seventeen public-method progress rows"));
   wrapper.append(summary);
   const live = make("div", "live-strip");
