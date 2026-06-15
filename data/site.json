@@ -46,6 +46,193 @@
     "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; progress_site/media/server_office2_continuous/frame001250-001339"
   },
   "abstract": "Work2 studies how temporally ordered RGB-D observations become a persistent 3D semantic memory for embodied navigation. The current evidence is PanoGS office2 reconstruction with 21-class semantic labels projected back to moving views and exposed as an interactive 3D map. Public comparison remains gated until all Replica scenes finish.",
+  "research_evolution": {
+    "note": "The page separates field direction from local evidence. External methods are benchmark targets or references unless a local work2 row is available.",
+    "stages": [
+      {
+        "title": "2D semantic segmentation",
+        "summary": "Closed-set image parsing labels each pixel in a fixed vocabulary. It is useful as historical context, but it is not the current research target.",
+        "benchmarks": [
+          "ADE20K",
+          "Cityscapes",
+          "COCO-Stuff"
+        ],
+        "methods": [
+          {
+            "name": "Mask2Former",
+            "url": "https://github.com/facebookresearch/Mask2Former"
+          },
+          {
+            "name": "OneFormer",
+            "url": "https://github.com/SHI-Labs/OneFormer"
+          },
+          {
+            "name": "Mask DINO",
+            "url": "https://github.com/IDEA-Research/MaskDINO"
+          },
+          {
+            "name": "SegFormer",
+            "url": "https://github.com/NVlabs/SegFormer"
+          }
+        ],
+        "local_evidence": "No standalone 2D closed-set result is claimed. Work2 uses 2D masks only as upstream observations for 3D memory.",
+        "truth_level": "external_reference_plus_upstream_input_boundary"
+      },
+      {
+        "title": "3D semantic segmentation",
+        "summary": "3D scene parsing assigns semantic labels to points, voxels or meshes. This is the closest conventional benchmark family for work2 PanoGS evidence.",
+        "benchmarks": [
+          "ScanNet",
+          "ScanNet200",
+          "ScanNet++"
+        ],
+        "methods": [
+          {
+            "name": "MinkowskiNet",
+            "url": "https://github.com/NVIDIA/MinkowskiEngine"
+          },
+          {
+            "name": "Point Transformer V2",
+            "url": "https://github.com/Pointcept/Pointcept"
+          },
+          {
+            "name": "Mask3D",
+            "url": "https://github.com/JonasSchult/Mask3D"
+          },
+          {
+            "name": "PointGroup",
+            "url": "https://github.com/dvlab-research/PointGroup"
+          }
+        ],
+        "local_evidence": "PanoGS Replica office0, office1, office2, office3, room0, room1 and room2 have local pointwise semantic rows. office4 is the next migrated-server task.",
+        "truth_level": "local_replica_pointwise_metric_not_public_scannet_protocol"
+      },
+      {
+        "title": "2D video continuous segmentation",
+        "summary": "Video segmentation tracks objects through changing views. This is the right format for dynamic evidence videos, not repeated still panels.",
+        "benchmarks": [
+          "DAVIS",
+          "YouTube-VOS",
+          "SA-V"
+        ],
+        "methods": [
+          {
+            "name": "SAM 2",
+            "url": "https://github.com/facebookresearch/sam2"
+          },
+          {
+            "name": "XMem",
+            "url": "https://github.com/hkchengrex/XMem"
+          },
+          {
+            "name": "Cutie",
+            "url": "https://github.com/hkchengrex/Cutie"
+          },
+          {
+            "name": "DeAOT",
+            "url": "https://github.com/yoxu515/aot-benchmark"
+          }
+        ],
+        "local_evidence": "The current teaser uses a 90-frame moving office2 RGB sequence with a 3D semantic projection. It is not a SAM2 object-tracking result.",
+        "truth_level": "local_temporal_visualization_no_video_segmentation_benchmark"
+      },
+      {
+        "title": "2D open-vocabulary segmentation",
+        "summary": "Open-vocabulary image segmentation grounds pixels with natural-language labels instead of a preset closed vocabulary.",
+        "benchmarks": [
+          "ADE20K A-150 and A-847",
+          "Pascal Context 59 and 459",
+          "COCO-Stuff"
+        ],
+        "methods": [
+          {
+            "name": "CAT-Seg",
+            "url": "https://ku-cvlab.github.io/CAT-Seg/"
+          },
+          {
+            "name": "OVSeg",
+            "url": "https://github.com/facebookresearch/ov-seg"
+          },
+          {
+            "name": "SAN",
+            "url": "https://github.com/MendelXu/SAN"
+          },
+          {
+            "name": "ODISE",
+            "url": "https://github.com/NVlabs/ODISE"
+          }
+        ],
+        "local_evidence": "No official 2D open-vocabulary benchmark row has been run in work2. CLIP-style features appear only inside adapted 3D semantic routes.",
+        "truth_level": "external_reference_pending_local_reproduction"
+      },
+      {
+        "title": "3D open-vocabulary segmentation",
+        "summary": "Language-conditioned 3D segmentation is the natural bridge from semantic maps to queryable scene memory.",
+        "benchmarks": [
+          "LERF",
+          "3D-OVS",
+          "ScanNet200 open vocabulary"
+        ],
+        "methods": [
+          {
+            "name": "LERF",
+            "url": "https://lerf.io/"
+          },
+          {
+            "name": "LangSplat",
+            "url": "https://github.com/minghanqin/LangSplat"
+          },
+          {
+            "name": "OpenGaussian",
+            "url": "https://github.com/young-bit/OpenGaussian"
+          },
+          {
+            "name": "Gaussian Grouping",
+            "url": "https://github.com/lkeab/gaussian-grouping"
+          },
+          {
+            "name": "Online Language Splatting",
+            "url": "https://arxiv.org/html/2503.09447v1"
+          }
+        ],
+        "local_evidence": "Work2 tracks adapted LangSplatV2, GAGS and ILGS rows under the ReplicaOcc protocol. These are adapter rows, not official public benchmark parity.",
+        "truth_level": "local_adapter_rows_no_official_sota_claim"
+      },
+      {
+        "title": "3D Gaussian scene question answering",
+        "summary": "The newest direction asks questions over 3D Gaussian scene memory rather than stopping at segmentation masks.",
+        "benchmarks": [
+          "OpenEQA",
+          "ScanQA",
+          "SQA3D"
+        ],
+        "methods": [
+          {
+            "name": "OpenEQA baselines",
+            "url": "https://open-eqa.github.io/"
+          },
+          {
+            "name": "SplatTalk",
+            "url": "https://arxiv.org/html/2503.06271v2"
+          },
+          {
+            "name": "ChatSplat",
+            "url": "https://arxiv.org/html/2412.00734v1"
+          },
+          {
+            "name": "SceneSplat",
+            "url": "https://unique1i.github.io/SceneSplat_webpage/"
+          },
+          {
+            "name": "MLLMSplat",
+            "url": "https://openaccess.thecvf.com/content/CVPR2026/papers/Xiu_MLLMSplat_A_2D_MLLM-Powered_Framework_for_3D_Gaussian_Splatting_Understanding_CVPR_2026_paper.pdf"
+          }
+        ],
+        "local_evidence": "No work2 Gaussian QA row is claimed yet. The PREDICTIVE-SGMAP packet will first build deterministic action-conditioned semantic forecasts.",
+        "truth_level": "future_direction_no_local_qa_result"
+      }
+    ]
+  },
   "method": {
     "text": "",
     "media": {

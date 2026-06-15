@@ -1376,6 +1376,49 @@ function renderBenchmarkPerformance(section = {}) {
   root.replaceChildren(wrapper);
 }
 
+function renderResearchEvolution(section = {}) {
+  const root = $("research-evolution");
+  const note = $("research-evolution-note");
+  if (!root) return;
+  const stages = section.stages || [];
+  if (note) note.textContent = value(section.note);
+  setParentSectionVisible(root, Boolean(stages.length));
+  if (!stages.length) {
+    root.replaceChildren();
+    return;
+  }
+
+  const grid = make("div", "research-evolution-grid");
+  stages.forEach((stage, index) => {
+    const card = make("article", "research-stage");
+    const head = make("div", "research-stage-head");
+    head.append(make("span", "research-stage-index", String(index + 1).padStart(2, "0")));
+    head.append(make("h3", "", value(stage.title)));
+    head.append(statusLabel(stage.truth_level));
+    card.append(head);
+    if (stage.summary) card.append(make("p", "research-stage-summary", value(stage.summary)));
+
+    const benchmarks = make("div", "research-benchmarks");
+    (stage.benchmarks || []).forEach((benchmark) => {
+      benchmarks.append(make("span", "research-benchmark-chip", value(benchmark)));
+    });
+    card.append(benchmarks);
+
+    const methods = make("div", "research-methods");
+    (stage.methods || []).forEach((method) => {
+      const node = linkNode(value(method.name), method.url);
+      node.className = node.className ? `${node.className} research-method-link` : "research-method-link";
+      methods.append(node);
+    });
+    card.append(methods);
+
+    const evidence = make("p", "research-local-evidence", value(stage.local_evidence));
+    card.append(evidence);
+    grid.append(card);
+  });
+  root.replaceChildren(grid);
+}
+
 function renderTimeline(items = []) {
   const root = $("timeline");
   root.replaceChildren(...items.map((item) => {
@@ -1399,6 +1442,7 @@ function render(data) {
   $("subtitle").textContent = value(data.subtitle);
   $("authors").textContent = (data.authors || []).join(", ");
   renderAbstract(data.abstract, data.abstract_points || []);
+  renderResearchEvolution(data.research_evolution || {});
   $("video-note").textContent = value(data.video_note);
   renderButtons(data.buttons || []);
   renderTeaser(data.teaser || {}, data.hero_slider || {});
