@@ -428,7 +428,7 @@
   "technical_stack": [
     {
       "name": "SAM input",
-      "value": "2000 / 2000",
+      "value": "2000/2000",
       "meter": 1.0,
       "unit": "raw masks",
       "evidence": "panogs_office2_sam_mask_generation_20260614"

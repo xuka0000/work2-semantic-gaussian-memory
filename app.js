@@ -394,7 +394,7 @@ async function renderPointCloudViewer(config = {}) {
     (config.class_metrics || []).slice(0, 6).forEach((row) => {
       const classRow = make("span", "class-metric-row");
       classRow.append(make("em", "", value(row.class)));
-      classRow.append(make("small", "", `IoU ${Number(row.iou).toFixed(3)} · Acc ${Number(row.acc).toFixed(3)}`));
+      classRow.append(make("small", "", `IoU ${Number(row.iou).toFixed(3)} / Acc ${Number(row.acc).toFixed(3)}`));
       metricPanel.append(classRow);
     });
     if (config.metric_source) metricPanel.append(make("code", "", value(config.metric_source)));
@@ -454,7 +454,7 @@ async function renderPointCloudViewer(config = {}) {
         row.append(swatch);
         row.append(make("em", "", value(item.name, `cluster ${value(item.label)}`)));
         const share = payload.sample_count ? Number(item.count) / Number(payload.sample_count) * 100 : 0;
-        row.append(make("small", "", `${value(item.count)} pts · ${share.toFixed(1)}%`));
+        row.append(make("small", "", `${value(item.count)} pts / ${share.toFixed(1)}%`));
         legendPanel.append(row);
       });
       if (payload.legend_boundary) legendPanel.append(make("code", "", value(payload.legend_boundary)));

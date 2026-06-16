@@ -2969,3 +2969,1106 @@ td code {
     width: 100%;
   }
 }
+
+/* Apple-inspired presentation pass, 2026-06-16.
+   The page remains evidence-driven through site.json, but the reading path is now
+   visual-first: teaser video, interactive 3D model, then compact result grids. */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #f5f5f7;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Arial, sans-serif;
+}
+
+.project-page-redesign {
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+.project-page-redesign .container.is-max-desktop,
+.template-credit .container.is-max-desktop {
+  width: min(1180px, calc(100% - 44px));
+}
+
+.publication-header {
+  min-height: 42vh;
+  background: #fff;
+}
+
+.publication-header .hero-body {
+  padding: 72px 0 34px;
+}
+
+.publication-venue {
+  border: 0;
+  background: transparent;
+  color: #6e6e73;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.publication-title {
+  max-width: 980px;
+  color: #1d1d1f;
+  font-size: clamp(50px, 7.8vw, 92px);
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.98;
+}
+
+.publication-subtitle {
+  max-width: 900px;
+  color: #424245;
+  font-size: clamp(22px, 2.7vw, 32px);
+  font-weight: 600;
+  line-height: 1.22;
+}
+
+.publication-authors {
+  max-width: 780px;
+  color: #6e6e73;
+  font-size: 16px;
+}
+
+.publication-links {
+  gap: 24px;
+}
+
+.publication-links .button {
+  min-width: auto;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #06c;
+  box-shadow: none;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.publication-links .button::before {
+  content: none;
+}
+
+.publication-links .button::after {
+  content: ">";
+  margin-left: 5px;
+  font-size: 15px;
+}
+
+.project-teaser {
+  background: #fff;
+}
+
+.project-teaser .hero-body {
+  padding: 14px 0 64px;
+}
+
+.teaser-media,
+.project-page-redesign .teaser {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+.teaser-media video,
+.teaser-media img,
+.project-page-redesign .teaser video,
+.project-page-redesign .teaser img {
+  max-height: 720px;
+  border-radius: 8px;
+  object-fit: contain;
+  background: #000;
+  box-shadow: none;
+}
+
+.project-page-redesign .caption {
+  max-width: 860px;
+  margin-top: 16px;
+  color: #6e6e73;
+  font-size: 15px;
+}
+
+.paper-section {
+  padding: 72px 0;
+  background: #f5f5f7;
+}
+
+.paper-section.hero.is-light,
+.paper-section.is-light-panel {
+  border: 0;
+  background: #fff;
+}
+
+.project-page-redesign h2,
+.project-page-redesign .title.is-3,
+.project-page-redesign .title.is-4 {
+  margin-bottom: 28px;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Arial, sans-serif;
+  font-size: clamp(34px, 4.4vw, 56px);
+  font-weight: 700;
+  line-height: 1.05;
+  text-align: center;
+}
+
+#abstract-section {
+  background: #fff;
+}
+
+#abstract-section .column {
+  max-width: 860px;
+}
+
+.abstract-body {
+  gap: 22px;
+}
+
+.abstract-lead {
+  color: #424245;
+  font-size: clamp(19px, 2vw, 24px);
+  font-weight: 500;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.abstract-points {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.abstract-point {
+  min-height: 132px;
+  padding: 22px;
+  border: 0;
+  border-radius: 8px;
+  background: #f5f5f7;
+}
+
+.abstract-point b {
+  margin-bottom: 10px;
+  color: #1d1d1f;
+  font-size: 17px;
+}
+
+.abstract-point p {
+  color: #6e6e73;
+  font-size: 14px;
+}
+
+.apple-model-section {
+  background: #000 !important;
+  color: #f5f5f7;
+}
+
+.apple-model-section .container.is-max-desktop {
+  width: min(1320px, calc(100% - 32px));
+}
+
+.apple-model-section h2 {
+  color: #f5f5f7;
+}
+
+.apple-model-section .point-cloud-shell {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 0;
+}
+
+.apple-model-section .point-cloud-stage {
+  min-height: min(78vh, 820px);
+  border: 0;
+  border-radius: 8px;
+  background: #2f2f2f;
+}
+
+.apple-model-section .point-cloud-linked {
+  border-color: #2c2c2e;
+  background: #111;
+}
+
+.apple-model-section .point-cloud-mini-copy {
+  color: #f5f5f7;
+}
+
+.apple-model-section .point-cloud-mini-copy span {
+  color: #a1a1a6;
+}
+
+.apple-model-section .point-cloud-info {
+  grid-template-columns: minmax(260px, 0.8fr) minmax(280px, 1fr) minmax(280px, 1fr);
+  margin-top: 18px;
+}
+
+.apple-model-section .point-cloud-info h3 {
+  color: #f5f5f7;
+}
+
+.apple-model-section .point-cloud-info p,
+.apple-model-section .point-meta code,
+.apple-model-section .point-class-metrics code,
+.apple-model-section .point-cluster-legend code {
+  color: #a1a1a6;
+}
+
+.apple-model-section .point-meta,
+.apple-model-section .point-class-metrics,
+.apple-model-section .point-cluster-legend {
+  border-color: #2c2c2e;
+  background: #111;
+}
+
+.apple-model-section .point-meta span,
+.apple-model-section .metric-chip,
+.apple-model-section .cluster-row,
+.apple-model-section .class-metric-row {
+  border-color: #2c2c2e;
+  background: #1c1c1e;
+  color: #f5f5f7;
+}
+
+.apple-model-section .point-class-metrics b,
+.apple-model-section .point-cluster-legend b,
+.apple-model-section .class-metric-row em,
+.apple-model-section .cluster-row em,
+.apple-model-section .metric-chip strong {
+  color: #f5f5f7;
+}
+
+.apple-model-section .sequence-controls button {
+  border-color: #3a3a3c;
+  background: #1c1c1e;
+  color: #f5f5f7;
+}
+
+.apple-model-section .sequence-controls button.active,
+.apple-model-section .sequence-controls .play-button {
+  border-color: #f5f5f7;
+  background: #f5f5f7;
+  color: #1d1d1f;
+}
+
+#research-evolution-section {
+  background: #f5f5f7;
+}
+
+#research-evolution-note {
+  max-width: 760px;
+  color: #6e6e73;
+  font-size: 17px;
+}
+
+.research-evolution-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.research-stage {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.research-stage-head {
+  order: 2;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 8px 10px;
+  padding: 16px 18px 0;
+}
+
+.research-stage-index {
+  width: 30px;
+  height: 30px;
+  border-color: #d2d2d7;
+  color: #06c;
+}
+
+.research-stage-head h3 {
+  color: #1d1d1f;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.research-state-label {
+  order: 3;
+  margin: 6px 18px 0;
+  color: #424245;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.research-stage-visual {
+  order: 1;
+  min-height: 260px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: #f5f5f7;
+}
+
+.research-stage-visual img,
+.research-stage-visual video {
+  height: 260px;
+  object-fit: contain;
+  background: #f5f5f7;
+}
+
+.research-stage-visual-video video {
+  object-fit: cover;
+  background: #000;
+}
+
+.research-anchor-visual {
+  min-height: 260px;
+  background: #111;
+}
+
+.research-anchor-visual img {
+  opacity: 0.96;
+  background: #111;
+}
+
+.research-anchor-visual span {
+  right: 14px;
+  bottom: 14px;
+  background: rgba(0, 0, 0, 0.78);
+}
+
+.research-stage-summary,
+.research-local-evidence {
+  display: none;
+}
+
+.research-visual-caption {
+  margin: 9px 14px 0;
+  color: #6e6e73;
+  font-size: 12px;
+}
+
+.research-benchmarks {
+  order: 4;
+  margin: 14px 18px 0;
+}
+
+.research-methods {
+  order: 5;
+  margin: 10px 18px 18px;
+}
+
+.research-benchmark-chip,
+.research-method-link {
+  min-height: 26px;
+  padding: 5px 9px;
+  border-color: #d2d2d7;
+  background: #f5f5f7;
+  color: #424245;
+  font-size: 11px;
+}
+
+.research-method-link {
+  border-color: transparent;
+  background: transparent;
+  color: #06c;
+}
+
+.status-chip {
+  min-height: 24px;
+  padding: 4px 8px;
+  border: 1px solid #d2d2d7;
+  border-radius: 999px;
+  background: #f5f5f7;
+  color: #6e6e73;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.method-visual-flow,
+.architecture-flow,
+.stack-grid,
+.quant-card-grid,
+.benchmark-status-grid,
+.highlight-grid {
+  margin-top: 18px;
+}
+
+.method-visual-flow,
+.architecture-flow {
+  border: 0;
+  border-radius: 8px;
+  background: #fff;
+  padding: 18px;
+}
+
+.method-flow-rail {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.method-flow-node,
+.architecture-block,
+.quant-card,
+.benchmark-card,
+.highlight,
+.stack-card {
+  border: 0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.method-flow-node {
+  min-height: 136px;
+  border-top: 4px solid #06c;
+}
+
+.method-flow-node b,
+.architecture-block h3 {
+  color: #1d1d1f;
+}
+
+.method-flow-node strong,
+.architecture-stats b,
+.quant-card strong,
+.benchmark-card strong,
+.highlight strong,
+.stack-value {
+  color: #1d1d1f;
+  font-size: clamp(24px, 2.8vw, 34px);
+}
+
+#semantic-principle.visual-support-section,
+#dynamic-semantic-map.appendix-muted,
+#dynamic-results.appendix-muted,
+#core-algorithm.appendix-muted,
+#data-protocol-section.appendix-muted,
+#updates.appendix-muted {
+  display: none !important;
+}
+
+#quantitative-results-section,
+#benchmark-section,
+#evidence-section {
+  background: #f5f5f7;
+}
+
+.quant-note,
+.media-note,
+.section-note {
+  color: #6e6e73;
+  font-size: 15px;
+}
+
+.table-wrap,
+.benchmark-performance,
+.public-methods,
+.evidence-details {
+  border: 0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+th {
+  background: #fbfbfd;
+  color: #6e6e73;
+}
+
+td {
+  color: #424245;
+}
+
+.timeline-item {
+  border-color: #d2d2d7;
+}
+
+.boundary-section {
+  background: #fff;
+}
+
+.boundary-section .columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.template-credit {
+  border: 0;
+  background: #f5f5f7;
+}
+
+@media (max-width: 1020px) {
+  .research-evolution-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .apple-model-section .point-cloud-info,
+  .method-flow-rail,
+  .architecture-flow,
+  .quant-card-grid,
+  .benchmark-status-grid,
+  .highlight-grid,
+  .stack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .project-page-redesign .container.is-max-desktop,
+  .template-credit .container.is-max-desktop {
+    width: min(100% - 24px, 1180px);
+  }
+
+  .publication-header .hero-body {
+    padding-top: 48px;
+  }
+
+  .publication-title {
+    font-size: 44px;
+  }
+
+  .publication-subtitle {
+    font-size: 21px;
+  }
+
+  .paper-section {
+    padding: 52px 0;
+  }
+
+  .abstract-points,
+  .research-evolution-grid,
+  .apple-model-section .point-cloud-info,
+  .method-flow-rail,
+  .architecture-flow,
+  .quant-card-grid,
+  .benchmark-status-grid,
+  .highlight-grid,
+  .stack-grid,
+  .boundary-section .columns {
+    grid-template-columns: 1fr;
+  }
+
+  .apple-model-section .point-cloud-stage {
+    min-height: 430px;
+  }
+}
+
+/* Apple-style refinement pass.
+   Goal: reduce dashboard density, put real visual evidence first, and keep text
+   subordinate to media, model, and metric tables. */
+main.project-page-redesign {
+  width: 100%;
+  margin: 0;
+}
+
+.project-page-redesign .hero,
+.project-page-redesign .section {
+  max-width: none;
+}
+
+.project-page-redesign #scene-capture {
+  width: 100%;
+  margin-left: 0;
+  transform: none;
+}
+
+.publication-header {
+  min-height: 0;
+}
+
+.publication-header .hero-body {
+  padding: 52px 0 22px;
+}
+
+.publication-title {
+  max-width: 1040px;
+  font-size: clamp(46px, 6.4vw, 82px);
+  line-height: 1.02;
+}
+
+.publication-subtitle {
+  max-width: 760px;
+  margin-top: 14px;
+  font-size: clamp(20px, 2.2vw, 28px);
+  font-weight: 500;
+}
+
+.publication-authors {
+  margin-top: 12px;
+}
+
+.project-teaser .hero-body {
+  padding: 4px 0 50px;
+}
+
+.project-page-redesign .teaser-media video,
+.project-page-redesign .teaser-media img,
+.project-page-redesign .teaser video,
+.project-page-redesign .teaser img {
+  max-height: min(72vh, 760px);
+  border-radius: 12px;
+  background: #050505;
+}
+
+#abstract-section {
+  padding: 58px 0;
+}
+
+#abstract-section .title {
+  margin-bottom: 18px;
+}
+
+.abstract-lead {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.abstract-points {
+  margin-top: 24px;
+}
+
+.abstract-point {
+  min-height: 116px;
+  padding: 20px 22px;
+}
+
+.project-page-redesign .apple-model-section {
+  padding: 76px 0 86px;
+  background: #000 !important;
+}
+
+.project-page-redesign .apple-model-section h2,
+.project-page-redesign .apple-model-section .title.is-3 {
+  color: #f5f5f7 !important;
+}
+
+.project-page-redesign .apple-model-section .point-cloud-stage {
+  min-height: min(68vh, 720px);
+  border-radius: 14px;
+}
+
+.project-page-redesign .apple-model-section .point-cloud-info {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(320px, 1fr) minmax(320px, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.project-page-redesign .apple-model-section .point-cloud-info > h3,
+.project-page-redesign .apple-model-section .point-cloud-info > p {
+  grid-column: 1;
+}
+
+.project-page-redesign .apple-model-section .point-meta {
+  grid-column: 1;
+}
+
+.project-page-redesign .apple-model-section .sequence-controls {
+  grid-column: 1;
+  grid-row: auto;
+  align-self: start;
+  justify-content: flex-start;
+}
+
+.project-page-redesign .apple-model-section .point-class-metrics {
+  grid-column: 2;
+  grid-row: 1 / span 4;
+  align-self: start;
+}
+
+.project-page-redesign .apple-model-section .point-cluster-legend {
+  grid-column: 3;
+  grid-row: 1 / span 4;
+  align-self: start;
+}
+
+.project-page-redesign .point-cloud-linked {
+  margin-top: 12px;
+  border-radius: 12px;
+}
+
+#research-evolution-section {
+  padding: 76px 0;
+}
+
+#research-evolution-note {
+  display: none;
+}
+
+.research-evolution-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.research-stage {
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+.research-stage-visual {
+  min-height: 300px;
+}
+
+.research-stage-visual img,
+.research-stage-visual video {
+  height: 300px;
+  padding: 0;
+}
+
+.research-stage-visual-gallery {
+  min-height: 300px;
+}
+
+.research-gallery-tile {
+  min-height: 150px;
+}
+
+.research-gallery-tile img {
+  height: 150px;
+}
+
+.research-mini-metrics,
+.research-packet-flow {
+  min-height: 300px;
+  background: radial-gradient(circle at 50% 20%, rgba(0, 102, 204, 0.12), transparent 34%), #f5f5f7;
+}
+
+.research-mini-metric {
+  border: 0;
+  background: #fff;
+}
+
+.research-packet-flow span {
+  min-width: 82px;
+  border: 0;
+  background: #fff;
+}
+
+.research-stage-head {
+  padding: 18px 20px 0;
+}
+
+.research-stage-head h3 {
+  font-size: 22px;
+  line-height: 1.12;
+}
+
+.research-state-label {
+  margin: 8px 20px 0;
+}
+
+.research-visual-caption {
+  display: none;
+}
+
+.research-benchmarks {
+  margin: 12px 20px 0;
+}
+
+.research-methods {
+  margin: 8px 20px 20px;
+}
+
+.research-benchmark-chip:nth-child(n + 3),
+.research-method-link:nth-child(n + 4) {
+  display: none;
+}
+
+#method-overview,
+#network-architecture,
+#technical-stack-section {
+  padding: 76px 0;
+  background: #fff;
+}
+
+#method-overview .method-media,
+#network-architecture .method-media {
+  overflow: visible;
+  background: transparent;
+}
+
+.method-text,
+#architecture-text {
+  display: none !important;
+}
+
+.method-visual-flow,
+.architecture-flow {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+  border-radius: 14px;
+  background: #f5f5f7;
+  padding: 28px;
+}
+
+.method-flow-rail {
+  display: flex;
+  gap: 10px;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.method-flow-node {
+  flex: 1 1 0;
+  min-width: 150px;
+  min-height: 170px;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  padding: 18px;
+}
+
+.method-flow-edge {
+  display: grid;
+  flex: 0 0 30px;
+  place-items: center;
+  color: #06c;
+  font-size: 0;
+  font-weight: 700;
+}
+
+.method-flow-edge::after {
+  content: ">";
+  font-size: 24px;
+}
+
+.method-node-dot {
+  width: 12px;
+  height: 12px;
+}
+
+.method-flow-node b {
+  min-height: 40px;
+  color: #1d1d1f;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.method-flow-node strong {
+  margin-top: auto;
+  color: #1d1d1f;
+  font-size: clamp(24px, 2.6vw, 36px);
+  line-height: 1;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.method-flow-node small {
+  margin-top: 8px;
+  color: #6e6e73;
+  font-size: 12px;
+}
+
+.method-flow-source {
+  display: block;
+  margin-top: 16px;
+  color: #86868b;
+  text-align: center;
+}
+
+.architecture-flow {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.architecture-block {
+  position: relative;
+  min-height: 190px;
+  border: 0;
+  border-radius: 12px;
+  background: #fff;
+  padding: 18px;
+}
+
+.architecture-block:not(:last-child)::after {
+  content: ">";
+  position: absolute;
+  right: -11px;
+  top: 50%;
+  z-index: 2;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: #06c;
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.architecture-stage {
+  color: #06c;
+  font-size: 12px;
+}
+
+.architecture-block h3 {
+  min-height: 42px;
+  color: #1d1d1f;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+.architecture-stats {
+  margin-top: 10px;
+}
+
+.architecture-stats b {
+  color: #1d1d1f;
+  font-size: 15px;
+  line-height: 1.25;
+}
+
+.architecture-artifacts {
+  display: none;
+}
+
+.stack-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.stack-card,
+.quant-card,
+.benchmark-card,
+.highlight {
+  border-radius: 14px;
+  background: #fff;
+  padding: 24px;
+}
+
+.stack-card h3 {
+  color: #1d1d1f;
+  font-size: 18px;
+}
+
+.stack-value {
+  font-size: clamp(30px, 4vw, 48px);
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+#quantitative-results-section,
+#benchmark-section,
+#evidence-section {
+  padding: 72px 0;
+}
+
+.quant-card-grid,
+.benchmark-status-grid,
+.highlight-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.table-wrap,
+.benchmark-performance,
+.public-methods,
+.evidence-details {
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.boundary-section {
+  padding: 68px 0;
+}
+
+@media (max-width: 1120px) {
+  .research-evolution-grid,
+  .architecture-flow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .architecture-block:not(:last-child)::after {
+    display: none;
+  }
+
+  .method-flow-rail {
+    flex-wrap: wrap;
+  }
+
+  .method-flow-edge {
+    display: none;
+  }
+
+  .project-page-redesign .apple-model-section .point-cloud-info,
+  .quant-card-grid,
+  .benchmark-status-grid,
+  .highlight-grid,
+  .stack-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .publication-header .hero-body {
+    padding: 38px 0 14px;
+  }
+
+  .project-teaser .hero-body {
+    padding-bottom: 38px;
+  }
+
+  .project-page-redesign h2,
+  .project-page-redesign .title.is-3,
+  .project-page-redesign .title.is-4 {
+    font-size: 34px;
+  }
+
+  .research-evolution-grid,
+  .architecture-flow,
+  .project-page-redesign .apple-model-section .point-cloud-info,
+  .quant-card-grid,
+  .benchmark-status-grid,
+  .highlight-grid,
+  .stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .research-stage-visual,
+  .research-stage-visual-gallery,
+  .research-mini-metrics,
+  .research-packet-flow {
+    min-height: 240px;
+  }
+
+  .research-stage-visual img,
+  .research-stage-visual video {
+    height: 240px;
+  }
+
+  .method-visual-flow,
+  .architecture-flow {
+    padding: 16px;
+  }
+
+  .method-flow-node {
+    min-width: 100%;
+  }
+}
+
+.project-page-redesign #quantitative-results-section h2,
+.project-page-redesign #benchmark-section h2,
+.project-page-redesign #evidence-section h2,
+.project-page-redesign #network-architecture h2,
+.project-page-redesign #technical-stack-section h2,
+.project-page-redesign #method-overview h2,
+.project-page-redesign #research-evolution-section h2,
+.project-page-redesign #abstract-section h2,
+.project-page-redesign .boundary-section h2 {
+  color: #1d1d1f !important;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Arial, sans-serif !important;
+  font-size: clamp(34px, 4.4vw, 56px) !important;
+  font-weight: 700 !important;
+  letter-spacing: 0 !important;
+  line-height: 1.05 !important;
+}
