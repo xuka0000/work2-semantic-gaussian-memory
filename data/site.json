@@ -123,17 +123,17 @@
       },
       {
         "title": "2D video continuous segmentation",
-        "state_label": "visual sequence ready, tracking not run",
-        "summary": "Video segmentation should preserve objects through a moving view. The current video shows same-index frame evidence, not SAM2 tracking.",
+        "state_label": "SAM2 demo complete, no benchmark",
+        "summary": "Video segmentation should preserve objects through a moving view. Work2 now has a prompted SAM2 office2 tracking demo for sofa and table.",
         "visual": {
           "kind": "video",
-          "src": "./media/office2_continuous_rgb_sam_stable_pair_browser.webm",
-          "poster": "./media/office2_continuous_rgb_sam_stable_pair_poster.jpg",
+          "src": "./media/office2_sam2_tracking_overlay.mp4",
+          "poster": "./media/office2_sam2_tracking_overlay_poster.jpg",
           "autoplay": true,
           "muted": true,
           "loop": true,
           "controls": true,
-          "caption": "Continuous office2 RGB and fixed-palette SAM sequence, used as input evidence."
+          "caption": "SAM2.1 Hiera-S propagated sofa and table masks over 90 Replica office2 frames."
         },
         "benchmarks": [
           "DAVIS",
@@ -158,8 +158,8 @@
             "url": "https://github.com/yoxu515/aot-benchmark"
           }
         ],
-        "local_evidence": "No frame-ID tracking metric, temporal IoU or SAM2 benchmark row has been run.",
-        "truth_level": "local_temporal_visualization_no_video_segmentation_benchmark"
+        "local_evidence": "SAM2 visual output exists for 90 office2 frames. No DAVIS, YouTube-VOS or SA-V benchmark metric is claimed.",
+        "truth_level": "sam2_office2_video_tracking_demo_no_benchmark_metric"
       },
       {
         "title": "2D open-vocabulary segmentation",
