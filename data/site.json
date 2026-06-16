@@ -163,29 +163,12 @@
       },
       {
         "title": "2D open-vocabulary segmentation",
-        "state_label": "prompt-mask artifact available",
-        "summary": "Open-vocabulary segmentation grounds pixels with natural-language prompts rather than a fixed label set.",
+        "state_label": "GroundingDINO + SAM2 demo complete",
+        "summary": "Open-vocabulary segmentation grounds image regions with text prompts and then converts the grounded boxes into masks.",
         "visual": {
-          "kind": "gallery",
-          "items": [
-            {
-              "src": "./media/foundation_clipseg_yellow_bowl.png",
-              "label": "yellow bowl"
-            },
-            {
-              "src": "./media/foundation_clipseg_wavy_noodles_in_bowl.png",
-              "label": "wavy noodles in bowl"
-            },
-            {
-              "src": "./media/foundation_clipseg_egg.png",
-              "label": "egg"
-            },
-            {
-              "src": "./media/foundation_clipseg_chopsticks.png",
-              "label": "chopsticks"
-            }
-          ],
-          "caption": "Local CLIPSeg prompt-mask artifacts from the ramen smoke lane, not an official benchmark row."
+          "kind": "image",
+          "src": "./media/office2_grounded_sam2_open_vocab.jpg",
+          "caption": "GroundingDINO tiny found text-prompt regions in Replica office2 and SAM2.1 Hiera-S produced object masks."
         },
         "benchmarks": [
           "ADE20K A-150 and A-847",
@@ -193,6 +176,10 @@
           "COCO-Stuff"
         ],
         "methods": [
+          {
+            "name": "Grounded-SAM-2",
+            "url": "https://github.com/IDEA-Research/Grounded-SAM-2"
+          },
           {
             "name": "CAT-Seg",
             "url": "https://ku-cvlab.github.io/CAT-Seg/"
@@ -210,8 +197,8 @@
             "url": "https://github.com/NVlabs/ODISE"
           }
         ],
-        "local_evidence": "CLIPSeg masks exist as smoke artifacts, but no official open-vocabulary 2D benchmark row is claimed.",
-        "truth_level": "local_prompt_mask_smoke_no_official_ov_benchmark"
+        "local_evidence": "Server demo produced 9 masks for prompt labels pillow, sofa, table, table cabinet. No ADE20K, Pascal Context or COCO-Stuff metric is claimed.",
+        "truth_level": "grounded_sam2_office2_open_vocab_image_demo_no_benchmark_metric"
       },
       {
         "title": "3D open-vocabulary segmentation",
