@@ -51,12 +51,12 @@
     "stages": [
       {
         "title": "2D semantic segmentation",
-        "state_label": "upstream evidence only",
-        "summary": "Closed-set image parsing is retained as preprocessing context. In work2 it supplies frame masks for 3D memory rather than the final result.",
+        "state_label": "Mask2Former demo complete",
+        "summary": "Closed-set image parsing assigns each pixel to a fixed semantic vocabulary. Work2 uses it as a foundation lane, not as the final 3D memory result.",
         "visual": {
           "kind": "image",
-          "src": "./media/foundation_office2_frame000750_rgb_sam_clean.jpg",
-          "caption": "Replica office2 RGB frame paired with same-frame SAM mask evidence."
+          "src": "./media/office2_mask2former_ade_semantic.jpg",
+          "caption": "Mask2Former ADE semantic segmentation on a Replica office2 RGB frame."
         },
         "benchmarks": [
           "ADE20K",
@@ -81,8 +81,8 @@
             "url": "https://github.com/NVlabs/SegFormer"
           }
         ],
-        "local_evidence": "No standalone 2D closed-set benchmark result is claimed.",
-        "truth_level": "external_reference_plus_upstream_input_boundary"
+        "local_evidence": "Server demo produced a one-frame closed-set semantic map. Top labels include wall, sofa, floor, coffee table, television receiver, cushion. No ADE20K, Cityscapes or COCO-Stuff metric is claimed.",
+        "truth_level": "mask2former_office2_closed_set_2d_semantic_demo_no_benchmark_metric"
       },
       {
         "title": "3D semantic segmentation",
