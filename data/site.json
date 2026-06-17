@@ -1,6 +1,6 @@
 {
   "workspace": "work2",
-  "updated_at": "2026-06-16T06:51:30+08:00",
+  "updated_at": "2026-06-17T10:58:26+08:00",
   "venue": "Replica/PanoGS local evidence page",
   "title": "Semantic Gaussian Memory",
   "subtitle": "Queryable 3D Semantic Gaussian Maps for Embodied Navigation",
@@ -250,44 +250,67 @@
       },
       {
         "title": "3D Gaussian scene question answering",
-        "state_label": "future lane, predictive packet started",
-        "summary": "The next step is question answering and prediction over 3D Gaussian memory instead of stopping at segmentation.",
+        "state_label": "server shadow replay complete",
+        "summary": "Predictive SGMap now exports action-conditioned future support, ambiguity, uncertainty and risk packets before a planner executes the action.",
         "visual": {
-          "kind": "packet",
-          "items": [
-            "packet",
-            "forward",
-            "left",
-            "shadow",
-            "20 rows"
+          "kind": "metrics",
+          "rows": [
+            {
+              "label": "packets",
+              "value": "626"
+            },
+            {
+              "label": "candidate rows",
+              "value": "2504"
+            },
+            {
+              "label": "selected actions",
+              "value": "626"
+            },
+            {
+              "label": "CityAVOS tasks",
+              "value": "605"
+            },
+            {
+              "label": "logged probes",
+              "value": "1"
+            },
+            {
+              "label": "logged agreement",
+              "value": "0.0000"
+            },
+            {
+              "label": "failure-risk failed",
+              "value": "0.4141"
+            }
           ],
-          "caption": "Predictive P0 exports action-conditioned packets only. It is not a 3D QA metric."
+          "caption": "Server-generated predictive packets over public-task and replay inputs. This is a shadow result, not an official closed-loop benchmark score."
         },
         "benchmarks": [
-          "OpenEQA",
-          "ScanQA",
-          "SQA3D"
+          "CityAVOS public tasks",
+          "AerialVLN-Fine style replay",
+          "OpenEQA and SQA3D remain future QA targets"
         ],
         "methods": [
           {
-            "name": "OpenEQA baselines",
+            "name": "Predictive SGMap",
+            "url": "#method-overview"
+          },
+          {
+            "name": "CityAVOS",
+            "url": "https://arxiv.org/abs/2505.08765"
+          },
+          {
+            "name": "Aerial World Model",
+            "url": "https://arxiv.org/abs/2512.21887"
+          },
+          {
+            "name": "OpenEQA",
             "url": "https://open-eqa.github.io/"
-          },
-          {
-            "name": "SplatTalk",
-            "url": "https://arxiv.org/html/2503.06271v2"
-          },
-          {
-            "name": "ChatSplat",
-            "url": "https://arxiv.org/html/2412.00734v1"
-          },
-          {
-            "name": "SceneSplat",
-            "url": "https://unique1i.github.io/SceneSplat_webpage/"
           }
         ],
-        "local_evidence": "No Gaussian scene QA row is claimed. Predictive ASFP-SGMap P0 is offline shadow replay only.",
-        "truth_level": "predictive_asfp_sgmap_p0_shadow_replay_no_closed_loop"
+        "local_evidence": "Server shadow replay produced 626 packets. CityAVOS public tasks 605, work1 replay states 20, logged probes 1. Sources: asfp_sgmap/outputs/research/aaai_sota_comparison/predictive_sgmap_public_shadow_20260617/predictive_shadow_summary.json; asfp_sgmap/outputs/research/aaai_sota_comparison/predictive_sgmap_public_shadow_20260617/predictive_trace_summary.json; asfp_sgmap/outputs/research/aaai_sota_comparison/predictive_sgmap_public_shadow_20260617/predictive_shadow_rows.csv.",
+        "truth_level": "public_shadow_replay_no_closed_loop_metric"
       }
     ]
   },
@@ -428,7 +451,7 @@
   "technical_stack": [
     {
       "name": "SAM input",
-      "value": "2000/2000",
+      "value": "2000 / 2000",
       "meter": 1.0,
       "unit": "raw masks",
       "evidence": "panogs_office2_sam_mask_generation_20260614"
@@ -462,6 +485,11 @@
   "media_sections": [],
   "result_highlights": [
     {
+      "label": "Predictive SGMap",
+      "value": "626 packets",
+      "note": "626 public-shadow records; 2504 candidate action rows; no closed-loop metric claim."
+    },
+    {
       "label": "temporal video",
       "value": "90 frames",
       "note": "5.0 s continuous office2 overlay."
@@ -479,7 +507,7 @@
     {
       "label": "Metric-ready rows",
       "value": "8 / 8 scenes",
-      "note": "PanoGS Replica pointwise diagnostics are complete for the full eight-scene roster. This is not a public SOTA row."
+      "note": "PanoGS pointwise mean mIoU 0.5483, mAcc 0.6650; not a full8 row."
     }
   ],
   "h4g292_scene_summary": [],
@@ -680,9 +708,9 @@
       "year": "2025",
       "tier": "P1",
       "status": "office2_segmentation_finished_single_scene_eval",
-      "metric_state": "7_scene_pointwise_no_full8",
+      "metric_state": "8_scene_pointwise_no_full8",
       "full8_scenes": "8",
-      "completed_metric_scenes": "7",
+      "completed_metric_scenes": "8",
       "top8_miou": "",
       "present_miou": "",
       "completion_iou": "",
@@ -1152,7 +1180,7 @@
   "public_methods_meta": {
     "title": "Public Baseline Evidence Table",
     "status": "Auto-refreshing local site.json",
-    "updated_at": "2026-06-15T15:49:24+08:00",
+    "updated_at": "2026-06-16T12:25:56+08:00",
     "refresh_interval_seconds": 30,
     "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/public_method_progress_20260613/public_method_progress_rows_20260613.csv",
     "boundary": "The browser reloads site.json every 30 seconds. Server progress appears here after sync-only updates local logs and this script regenerates site.json."
@@ -1375,19 +1403,11 @@
   },
   "benchmark_status": {
     "title": "PanoGS Replica benchmark state",
-    "status": "environment_repair_running",
-    "generated_at": "2026-06-16T03:35:09+08:00",
-    "active_processes": [
-      {
-        "pid": "9877",
-        "elapsed": "01:25:13",
-        "cpu_percent": "0.7",
-        "mem_percent": "0.0",
-        "command": "[server-path-redacted] pip install torch==2.7.1 torchvision==0.22.1 pillow"
-      }
-    ],
+    "status": "remote_probe_failed",
+    "generated_at": "2026-06-17T10:58:26+08:00",
+    "active_processes": [],
     "source": "progress_site/data/server_benchmark_status.json",
-    "boundary": "This is a one-shot new-server process snapshot. The GPU is idle and no PanoGS benchmark job is running until torch CUDA and SAM smoke tests pass.",
+    "boundary": "This is a one-shot remote process snapshot. Completed metric rows are read from local synced status and CSV files.",
     "full8_target": [
       "office0",
       "office1",
@@ -1403,15 +1423,14 @@
       "office1",
       "office2",
       "office3",
+      "office4",
       "room0",
       "room1",
       "room2"
     ],
-    "pending_scenes": [
-      "office4"
-    ],
-    "mean_completed_miou": 0.5653142857142858,
-    "mean_completed_macc": 0.6841,
+    "pending_scenes": [],
+    "mean_completed_miou": 0.5483125,
+    "mean_completed_macc": 0.6649625,
     "scene_metrics": [
       {
         "scene": "office0",
@@ -1442,6 +1461,13 @@
         "truth_level": "panogs_office3_pointwise_eval_single_scene_no_public_sota"
       },
       {
+        "scene": "office4",
+        "mIoU": 0.4293,
+        "mAcc": 0.531,
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office4_run_segment_20260616/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_office4_pointwise_eval_single_scene_no_public_sota"
+      },
+      {
         "scene": "room0",
         "mIoU": 0.7349,
         "mAcc": 0.8215,
@@ -1465,22 +1491,30 @@
     ],
     "server_experiments": [
       {
-        "experiment": "New server runtime repair",
-        "status": "environment_repaired",
-        "running": "not running",
+        "experiment": "Predictive SGMap public shadow replay",
+        "status": "complete",
+        "running": "no",
+        "metrics": "626 packets; 2504 action rows",
+        "next_action": "Use as P0 interface evidence; do not claim official closed-loop score",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/predictive_sgmap_public_shadow_20260617/predictive_shadow_summary.json"
+      },
+      {
+        "experiment": "Remote benchmark process snapshot",
+        "status": "remote_probe_failed",
+        "running": "0 active processes",
         "metrics": "not a metric row",
-        "next_action": "Runtime is repaired. Continue with full8 PanoGS evidence packaging and any selected public-baseline reproductions.",
+        "next_action": "Launch office3 PanoGS chain, then office4, if the server is idle.",
         "source": "progress_site/data/server_benchmark_status.json",
-        "boundary": "Runtime repair is setup evidence only."
+        "boundary": "This is a one-shot remote process snapshot. Completed metric rows are read from local synced status and CSV files."
       },
       {
         "experiment": "PanoGS Replica full8 pointwise track",
         "status": "8 / 8 scenes complete",
-        "running": "not running",
-        "metrics": "diagnostic mean mIoU 0.5483, mean mAcc 0.6650",
-        "next_action": "Package the full8 diagnostic table and decide whether a normalized public-protocol aggregate is valid.",
+        "running": "pending none",
+        "metrics": "mean mIoU 0.5483, mean mAcc 0.6650",
+        "next_action": "Complete office3 and office4, then compute the full8 aggregate.",
         "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_*_run_segment_*/artifacts/eval_pointwise_semantic.txt",
-        "boundary": "Eight completed pointwise scenes are diagnostics, not official public SOTA evidence."
+        "boundary": "Six completed pointwise scenes are diagnostics until the full eight-scene aggregate exists."
       },
       {
         "experiment": "PanoGS office2 semantic chain",
@@ -1627,14 +1661,14 @@
         "task_id": "EXT08",
         "method": "PanoGS",
         "venue": "CVPR 2025",
-        "local_status": "7_scene_pointwise_no_full8",
-        "local_scenes": "7 / 8",
-        "local_performance": "7/8 pointwise scenes; mean mIoU 0.5653, mean mAcc 0.6841; office2 mIoU 0.5658, mAcc 0.6572",
+        "local_status": "8_scene_pointwise_no_full8",
+        "local_scenes": "8 / 8",
+        "local_performance": "8/8 pointwise scenes; mean mIoU 0.5483, mean mAcc 0.6650; office2 mIoU 0.5658, mAcc 0.6572",
         "top8_miou": "",
         "present_miou": "",
         "completion_iou": "",
-        "local_miou": "0.5653",
-        "local_macc": "0.6841",
+        "local_miou": "0.5483",
+        "local_macc": "0.6650",
         "paper_protocol": "mIoU; mAcc; PRQ; PQ",
         "paper_reported_result": "not extracted",
         "paper_url": "https://openaccess.thecvf.com/content/CVPR2025/html/Zhai_PanoGS_Gaussian-based_Panoptic_Segmentation_for_3D_Open_Vocabulary_Scene_Understanding_CVPR_2025_paper.html",
@@ -1821,13 +1855,13 @@
       },
       {
         "label": "PanoGS pointwise progress",
-        "value": "8 / 8 scenes complete",
-        "detail": "Diagnostic mean mIoU 0.5483, mAcc 0.6650. Office4 mIoU 0.4293, mAcc 0.5310."
+        "value": "8 / 8 scenes",
+        "detail": "Completed-scene mean mIoU 0.5483, mAcc 0.6650."
       },
       {
         "label": "Formal full8 PanoGS row",
-        "value": "diagnostic full8 complete",
-        "detail": "All eight pointwise scene diagnostics exist. A normalized public-protocol row remains bounded and is not a SOTA claim."
+        "value": "pending",
+        "detail": "Remaining scenes: none."
       },
       {
         "label": "Public methods tracked",
@@ -1881,16 +1915,16 @@
       {
         "method": "PanoGS",
         "evidence": "this work anchor",
-        "n": "8 scenes",
-        "miou": "0.5483",
-        "macc": "0.6650",
-        "top8_miou": "scene pointwise diagnostic",
-        "present_miou": "scene pointwise diagnostic",
-        "completion_iou": "not applicable",
-        "status": "diagnostic full8 pointwise complete",
-        "status_detail": "8 completed pointwise scene diagnostics; no normalized public SOTA row",
+        "n": "8 target scenes",
+        "miou": "pending",
+        "macc": "pending",
+        "top8_miou": "pending",
+        "present_miou": "pending",
+        "completion_iou": "pending",
+        "status": "formal row pending",
+        "status_detail": "8 completed diagnostics; full8 row not filled",
         "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_*_run_segment_*/artifacts/eval_pointwise_semantic.txt",
-        "truth_level": "panogs_full8_pointwise_diagnostic_no_public_sota_claim"
+        "truth_level": "panogs_partial_pointwise_diagnostic_no_public_sota_claim"
       }
     ],
     "diagnostics_title": "PanoGS Pointwise Diagnostics",
@@ -1941,6 +1975,17 @@
         "decision": "retained diagnostic"
       },
       {
+        "scene": "office4",
+        "classes": "21",
+        "miou": "0.4293",
+        "macc": "0.5310",
+        "strongest_classes": "ceiling, floor, wall",
+        "evidence": "pointwise eval",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office4_run_segment_20260616/artifacts/eval_pointwise_semantic.txt",
+        "truth_level": "panogs_office4_pointwise_eval_single_scene_no_public_sota",
+        "decision": "retained diagnostic"
+      },
+      {
         "scene": "room0",
         "classes": "21",
         "miou": "0.7349",
@@ -1972,18 +2017,42 @@
         "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_room2_run_segment_20260613/artifacts/eval_pointwise_semantic.txt",
         "truth_level": "panogs_room2_pointwise_eval_single_scene_no_public_sota",
         "decision": "retained diagnostic"
-      },
-      {
-        "scene": "office4",
-        "classes": "21",
-        "miou": "0.4293",
-        "macc": "0.5310",
-        "strongest_classes": "ceiling, floor, wall, chair",
-        "evidence": "pointwise eval",
-        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/panogs_office4_run_segment_20260616/artifacts/eval_pointwise_semantic.txt",
-        "truth_level": "panogs_office4_pointwise_eval_single_scene_no_public_sota",
-        "decision": "retained diagnostic"
       }
     ]
+  },
+  "predictive_results": {
+    "shadow_summary": {
+      "packet_version": "predictive_asfp_sgmap_v0",
+      "truth_level": "public_shadow_replay_no_closed_loop_metric",
+      "packet_count": 626,
+      "candidate_row_count": 2504,
+      "selected_logged_action_labeled_count": 0,
+      "selected_logged_action_agreement": 0.0,
+      "selected_failure_risk_mean_success": 0.4273,
+      "selected_failure_risk_mean_failure": 0.4141,
+      "boundary": "shadow replay summary only; it does not change ASFP actions and does not claim downstream improvement"
+    },
+    "trace_summary": {
+      "trace_version": "predictive_public_shadow_trace_v0",
+      "truth_level": "public_shadow_replay_no_closed_loop_metric",
+      "record_count": 626,
+      "source_counts": {
+        "work1_aerialvln_shadow_replay": 20,
+        "cityavos_value_risk_public_tasks": 605,
+        "cityavos_public_logged_trajectory_probe": 1
+      },
+      "work1_replay": "outputs/replay/work1_20run_uncertainty_replay.json",
+      "cityavos_value_risk_csv": "outputs/research/aaai_sota_comparison/cityavos_value_risk_offline_smoke_20260616/cityavos_value_risk_rows.csv",
+      "cityavos_logged_csv": "outputs/research/aaai_sota_comparison/cityavos_logged_trajectory_probe_20260616/cityavos_logged_trajectory_rows.csv",
+      "out_graph": "[server-path-redacted]",
+      "boundary": "Public-task and replay shadow input only. It is not an official closed-loop benchmark result."
+    },
+    "selected_action_rows": 626,
+    "sources": {
+      "shadow_summary": "asfp_sgmap/outputs/research/aaai_sota_comparison/predictive_sgmap_public_shadow_20260617/predictive_shadow_summary.json",
+      "trace_summary": "asfp_sgmap/outputs/research/aaai_sota_comparison/predictive_sgmap_public_shadow_20260617/predictive_trace_summary.json",
+      "rows_csv": "asfp_sgmap/outputs/research/aaai_sota_comparison/predictive_sgmap_public_shadow_20260617/predictive_shadow_rows.csv"
+    },
+    "boundary": "Shadow replay only. It does not report official CityAVOS, AerialVLN-Fine, OpenEQA or SQA3D leaderboard performance."
   }
 }
