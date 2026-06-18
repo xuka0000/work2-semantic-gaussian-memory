@@ -1,6 +1,6 @@
 {
   "workspace": "work2",
-  "updated_at": "2026-06-17T12:29:07+08:00",
+  "updated_at": "2026-06-18T12:08:23+08:00",
   "venue": "Replica/PanoGS local evidence page",
   "title": "Semantic Gaussian Memory",
   "subtitle": "Queryable 3D Semantic Gaussian Maps for Embodied Navigation",
@@ -43,7 +43,7 @@
     "controls": true,
     "poster": "./media/office2_continuous_rgb_3d_semantic_projection_poster.jpg",
     "truth_level": "panogs_office2_3d_semantic_projection_temporal_video_no_new_metric",
-    "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; progress_site/media/server_office2_continuous/frame001250-001339"
+    "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; [converted-frame-window]"
   },
   "abstract": "Work2 studies how temporally ordered RGB-D observations become a persistent 3D semantic memory for embodied navigation. The current evidence is PanoGS office2 reconstruction with 21-class semantic labels projected back to moving views and exposed as an interactive 3D map. Public comparison remains gated until all Replica scenes finish.",
   "research_evolution": {
@@ -484,6 +484,11 @@
   },
   "media_sections": [],
   "result_highlights": [
+    {
+      "label": "CityAVOS local smoke",
+      "value": "4 RGB frames",
+      "note": "1 packaged EmbodiedCity task ran locally with AirSim, Grounded-SAM and LLM calls; success flag 0; no official metric claim."
+    },
     {
       "label": "Predictive SGMap",
       "value": "626 packets",
@@ -1049,7 +1054,7 @@
     {
       "artifact": "Server-synced office2 RGB and SAM frames",
       "truth_level": "panogs_office2_sam_mask_generation_no_metric",
-      "source": "progress_site/media/server_office2; remote [server-path-redacted] and [server-path-redacted]",
+      "source": "[converted-frame-window]; remote [server-path-redacted] and [server-path-redacted]",
       "boundary": "Input and SAM preprocessing evidence only. No reconstruction, segmentation metric, full8 aggregate or public SOTA claim."
     },
     {
@@ -1079,13 +1084,13 @@
     {
       "artifact": "Office2 continuous temporal RGB/SAM overlay video",
       "truth_level": "panogs_office2_continuous_rgb_sam_stable_temporal_video_no_metric",
-      "source": "progress_site/media/office2_continuous_rgb_sam_temporal_video_manifest.json; progress_site/media/server_office2_continuous",
+      "source": "progress_site/media/office2_continuous_rgb_sam_temporal_video_manifest.json; [converted-frame-window]",
       "boundary": "Consecutive server frames 1250-1339 with same-index SAM raw masks rendered by a fixed cyan and yellow palette. Temporal input and preprocessing evidence only; not SAM2 tracking, a new metric, or public SOTA result."
     },
     {
       "artifact": "Office2 continuous RGB and 3D semantic projection video",
       "truth_level": "panogs_office2_3d_semantic_projection_temporal_video_no_new_metric",
-      "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; progress_site/media/panogs_semantic_assets/office2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office2_point_cloud.ply",
+      "source": "progress_site/media/office2_continuous_rgb_3d_semantic_projection_manifest.json; [converted-semantic-asset]; [converted-semantic-asset]",
       "boundary": "Consecutive server RGB frames 1250-1339 with projected PanoGS 3D class labels. This is semantic projection evidence, not SAM2 tracking, manual labeling, a new metric, or a full public SOTA result."
     }
   ],
@@ -1241,7 +1246,7 @@
         "src": "./data/office2_semantic_point_cloud_sample.json",
         "context_src": "./data/office2_point_cloud_sample.json",
         "truth_level": "panogs_office2_semantic_point_cloud_sample_no_new_metric",
-        "source": "progress_site/media/panogs_semantic_assets/office2_point_cloud.ply; progress_site/media/panogs_semantic_assets/office2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office2_final_seg.npy",
+        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
         "metric_summary": {
           "mIoU": 0.5658,
           "mAcc": 0.6572,
@@ -1300,7 +1305,7 @@
         "caption": "office1 semantic point cloud sample generated from local point_cloud.ply and pre_semantic.npy 21-class predictions.",
         "src": "./data/office1_semantic_point_cloud_sample.json",
         "truth_level": "panogs_office1_semantic_point_cloud_sample_no_new_metric",
-        "source": "progress_site/media/panogs_semantic_assets/office1_point_cloud.ply; progress_site/media/panogs_semantic_assets/office1_pre_semantic.npy; progress_site/media/panogs_semantic_assets/office1_final_seg.npy",
+        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
         "metric_summary": {
           "mIoU": 0.2235,
           "mAcc": 0.3114,
@@ -1349,7 +1354,7 @@
         "caption": "room2 semantic point cloud sample generated from local point_cloud.ply and pre_semantic.npy 21-class predictions.",
         "src": "./data/room2_semantic_point_cloud_sample.json",
         "truth_level": "panogs_room2_semantic_point_cloud_sample_no_new_metric",
-        "source": "progress_site/media/panogs_semantic_assets/room2_point_cloud.ply; progress_site/media/panogs_semantic_assets/room2_pre_semantic.npy; progress_site/media/panogs_semantic_assets/room2_final_seg.npy",
+        "source": "[converted-semantic-asset]; [converted-semantic-asset]; [converted-semantic-asset]",
         "metric_summary": {
           "mIoU": 0.6928,
           "mAcc": 0.8628,
@@ -1409,7 +1414,7 @@
   "benchmark_status": {
     "title": "PanoGS Replica benchmark state",
     "status": "remote_probe_failed",
-    "generated_at": "2026-06-17T10:58:26+08:00",
+    "generated_at": "2026-06-18T12:08:23+08:00",
     "active_processes": [],
     "source": "progress_site/data/server_benchmark_status.json",
     "boundary": "This is a one-shot remote process snapshot. Completed metric rows are read from local synced status and CSV files.",
@@ -1495,6 +1500,15 @@
       }
     ],
     "server_experiments": [
+      {
+        "experiment": "CityAVOS local EmbodiedCity one-task smoke",
+        "status": "completed smoke; task failed",
+        "running": "simulator still open locally",
+        "metrics": "1 task; 4 RGB frames; 4 depth frames; if_success 0",
+        "next_action": "Align camera resolution and task-coordinate gate, then run a multi-task official-metric route before reporting TC/SPD/SED/SR/SPL.",
+        "source": "asfp_sgmap/outputs/research/aaai_sota_comparison/cityavos_local_runtime_retry_20260618_port41452/local_wrapper_task1_fix1_run/cityavos_task1_smoke_summary.json",
+        "boundary": "Local smoke only. It is not the official 605-task CityAVOS benchmark and does not report official TC, SPD, SED, SR or SPL."
+      },
       {
         "experiment": "CityAVOS official closed-loop gate",
         "status": "blocked",
@@ -1854,19 +1868,9 @@
     ]
   },
   "github_sharing": {
-    "status": "private_internal_ready_after_sanitization",
-    "recommended_template": "Academic Project Page Template or Nerfies style",
-    "notes": [
-      "The current progress_site is a static HTML, CSS and JavaScript page, so it can be hosted by GitHub Pages.",
-      "Use a private repository for immediate colleague sharing.",
-      "Before public release, remove local Windows paths, remote server absolute paths, raw process snapshots and unfinished internal boundary notes.",
-      "External templates may provide layout only. Their demo videos or images must not be used as work2 evidence."
-    ],
-    "references": [
-      "https://github.com/eliahuhorwitz/Academic-project-page-template",
-      "https://github.com/nerfies/nerfies.github.io",
-      "https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages"
-    ]
+    "status": "sanitized_static_share_copy",
+    "recommended_visibility": "private repository for colleague review",
+    "boundary": "Raw server paths, local absolute paths, browser cache, raw PLY and NPY files are excluded from this copy."
   },
   "quantitative_results": {
     "title": "Quantitative Results",
@@ -2114,5 +2118,96 @@
       "remote_out": "[server-path-redacted]"
     },
     "boundary": "This is an official-route gate for the closed-loop CityAVOS benchmark. It does not run a closed-loop CityAVOS benchmark, does not start UE or AirSim, does not send an agent to the simulator and does not produce official benchmark metrics."
+  },
+  "cityavos_local_smoke": {
+    "summary": {
+      "truth_level": "cityavos_local_wrapper_task1_smoke_no_official_metric",
+      "overall_status": "completed_short_task_failure",
+      "task_count": 1,
+      "mission_id": "1",
+      "scene_id": "1",
+      "target_text": "A coffee shop named CENTRAL ALL-STAR",
+      "frames": {
+        "rgb": 4,
+        "depth": 4
+      },
+      "llm_actions_from_stdout": [
+        "Turn Left",
+        "Go Forward",
+        "Go Forward",
+        "Go Forward"
+      ],
+      "if_success": 0,
+      "positions": [
+        [
+          6360,
+          4160,
+          5
+        ],
+        [
+          6360,
+          4160,
+          5
+        ],
+        [
+          6360,
+          4170,
+          5
+        ],
+        [
+          6360,
+          4180,
+          5
+        ],
+        [
+          6360,
+          4190,
+          5
+        ]
+      ],
+      "orientations": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          -90
+        ],
+        [
+          0,
+          0,
+          -90
+        ],
+        [
+          0,
+          0,
+          -90
+        ],
+        [
+          0,
+          0,
+          -90
+        ]
+      ],
+      "artifacts": {
+        "stdout": "D:\\博士研究生\\具身智能大论文架构\\work2\\asfp_sgmap\\outputs\\research\\aaai_sota_comparison\\cityavos_local_runtime_retry_20260618_port41452\\local_wrapper_task1_fix1_run\\cityavos_task1_stdout.log",
+        "stderr": "D:\\博士研究生\\具身智能大论文架构\\work2\\asfp_sgmap\\outputs\\research\\aaai_sota_comparison\\cityavos_local_runtime_retry_20260618_port41452\\local_wrapper_task1_fix1_run\\cityavos_task1_stderr.log",
+        "trajectory": "D:\\博士研究生\\具身智能大论文架构\\work2\\asfp_sgmap\\outputs\\research\\aaai_sota_comparison\\cityavos_local_runtime_retry_20260618_port41452\\local_wrapper_task1_fix1_run\\data_0.json",
+        "media_dir": "D:\\博士研究生\\具身智能大论文架构\\work2\\asfp_sgmap\\outputs\\research\\aaai_sota_comparison\\cityavos_local_runtime_retry_20260618_port41452\\local_wrapper_task1_fix1_run\\media",
+        "launcher": "D:\\博士研究生\\具身智能大论文架构\\work2\\asfp_sgmap\\outputs\\research\\aaai_sota_comparison\\cityavos_local_runtime_retry_20260618_port41452\\local_wrapper_task1_fix1\\cityavos_generated_local_launcher.py"
+      },
+      "boundary": "Local one-task wrapper smoke on the packaged EmbodiedCity Windows simulator. It confirms simulator, AirSim, Grounded-SAM invocation, OpenRouter LLM calls, action execution, and output logging. It is not an official 605-task CityAVOS evaluation and does not report official CityAVOS metrics."
+    },
+    "sources": {
+      "summary": "asfp_sgmap/outputs/research/aaai_sota_comparison/cityavos_local_runtime_retry_20260618_port41452/local_wrapper_task1_fix1_run/cityavos_task1_smoke_summary.json",
+      "media_dir": "asfp_sgmap/outputs/research/aaai_sota_comparison/cityavos_local_runtime_retry_20260618_port41452/local_wrapper_task1_fix1_run/media",
+      "trajectory": "asfp_sgmap/outputs/research/aaai_sota_comparison/cityavos_local_runtime_retry_20260618_port41452/local_wrapper_task1_fix1_run/data_0.json",
+      "stdout": "asfp_sgmap/outputs/research/aaai_sota_comparison/cityavos_local_runtime_retry_20260618_port41452/local_wrapper_task1_fix1_run/cityavos_task1_stdout.log",
+      "stderr": "asfp_sgmap/outputs/research/aaai_sota_comparison/cityavos_local_runtime_retry_20260618_port41452/local_wrapper_task1_fix1_run/cityavos_task1_stderr.log"
+    },
+    "boundary": "Local runtime smoke. It confirms execution path but does not establish official CityAVOS benchmark performance."
   }
 }
